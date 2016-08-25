@@ -1,8 +1,45 @@
+html {
+  height: 100%;
+}
+
 body {
-  background-image: url("../img/riskboard.jpg");
+  background: url("../img/riskboard.jpg") no-repeat center center fixed;
   background-size: cover;
+  height: 100%;
 }
 
 .container {
   background-color: rgba(255, 255, 255, 0.75);
+  width: 100%;
+  height: 100%;
+}
+
+#rewards {
+  color: purple;
+  font-size: 2em;
+  text-shadow: 20px 20px 40px red;
+}
+
+#p1 {
+  color: goldenrod;
+}
+
+#p2 {
+  color: darkgreen;
+}
+
+#p3 {
+  color: darkblue;
+}
+
+#p4 {
+  color: darkred;
+}
+
+#p5 {
+  color: black;
+}
+
+#p6 {
+  color: lightslategrey;
 }
