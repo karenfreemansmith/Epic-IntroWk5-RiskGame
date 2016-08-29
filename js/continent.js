@@ -3,7 +3,13 @@ function Continent(bonus) {
   this.bonusTroops=bonus;
 }
 Continent.prototype.isOwned = function() {
-  //for each territory in continents, check to see if owner is the same
-  //if same, return owner.name
-  //if not same, return "none"
+  var continentOwner="";
+  this.territories.forEach(function(territory) {
+    if((territory.owner===continentOwner)||(continentOwner==="")) {
+      continentOwner=territory.owner;
+    } else {
+      continentOwner= "none";
+    }
+    return continentOwner;
+  });
 }
