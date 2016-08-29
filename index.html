@@ -4,26 +4,44 @@
     <meta charset="utf-8">
     <title>Risk</title>
     <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Kumar+One" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Baloo+Paaji" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <div class="container">
-      <h1>Risk</h1>
-      <div class="row">
-        <div class="col-sm-2">
-          <h4 id="p1">Player 1</h4>
-          <h4 id="p2">Player 2</h4>
-          <h4 id="p3">Player 3</h4>
-          <h4 id="p4">Player 4</h4>
-          <h4 id="p5">Player 5</h4>
-          <h4 id="p6">Player 6</h4>
+    <div class="transparent">
+      <div class="container">
+        <h1>Risk</h1>
+        <div class="row">
+          <div class="col-sm-5">
+            <div id="activePlayer">
+            </div>
+          </div>
+          <div class="col-sm-2" id="teams">
+            <h4 id="p1">Team Yellow</h4>
+            <h4 id="p2">Team Green</h4>
+            <h4 id="p3">Team Blue</h4>
+            <h4 id="p4">Team Red</h4>
+            <h4 id="p5">Team Black</h4>
+          </div>
+          <div class="otherPlayer"></div>
         </div>
-        <div class="col-sm-6">
-        </div>
-        <div class="col-sm-4">
-          <div id="activePlayer">
+        <!-- dice divs start -->
+        <div id="dice" class="col-sm-4">
+          <div class="row">
+            <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
+          </div>
+          <div class="row defenseDice">
+            <div class="red" id="defenseOne"></div>
+            <div class="red" id="defenseTwo"></div>
+          </div>
+          <div class="row attackDice">
+            <div class="black" id="attackOne"></div>
+            <div class="black" id="attackTwo"></div>
+            <div class="black" id="attackThree"></div>
           </div>
         </div>
+        <!-- dice divs end -->
       </div>
     </div>
   <script src="js/jquery-3.1.0.js"></script>
