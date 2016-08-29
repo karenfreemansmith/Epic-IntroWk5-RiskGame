@@ -1,10 +1,10 @@
 function Game() {
-  var northAmerica = new Continent();
-  var southAmerica = new Continent();
-  var africa = new Continent();
-  var asia = new Continent();
-  var europe = new Continent();
-  var australia = new Continent();
+  var northAmerica = new Continent(5);
+  var southAmerica = new Continent(2);
+  var africa = new Continent(3);
+  var asia = new Continent(7);
+  var europe = new Continent(5);
+  var australia = new Continent(2);
   var board = [];
   board.push(northAmerica,southAmerica,africa,asia,europe,australia);
 

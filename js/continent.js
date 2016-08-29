@@ -1,5 +1,6 @@
-function Continent() {
+function Continent(bonus) {
   this.territories=[];
+  this.bonusTroops=bonus;
 }
 Continent.prototype.isOwned = function() {
   //for each territory in continents, check to see if owner is the same
