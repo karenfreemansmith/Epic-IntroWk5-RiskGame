@@ -4,74 +4,74 @@ function Game() {
   this.dice=[];
   this.cards=[];
   this.objectives=[];
-  this.continents=[];
-  this.continents.push(new Continent("North America"));
-    this.continents[0].territories.push(new Territory("Greenland"));
-      this.continents[0].territories[0].adjacentTerritories.push
-      ("Iceland", "Northwest Territory", "Ontario", "Quebec");
-    this.continents[0].territories.push(new Territory("Northwest Territory"));
-      this.continents[0].territories[1].adjacentTerritories.push
-      ("Alaska", "Alberta", "Ontario", "Greenland");
-    this.continents[0].territories.push(new Territory("Alaska"));
-      this.continents[0].territories[2].adjacentTerritories.push
-      ("Kamchatka", "Northwest Territory", "Alberta");
-    this.continents[0].territories.push(new Territory("Alberta"));
-      this.continents[0].territories[3].adjacentTerritories.push
-      ("Alaska", "Northwest Territory", "Ontario", "Western United States");
-    this.continents[0].territories.push(new Territory("Ontario"));
-      this.continents[0].territories[4].adjacentTerritories.push
-      ("Greenland", "Northwest Territory", "Alberta", "Quebec", "Western United States", "Eastern United States");
-    this.continents[0].territories.push(new Territory("Quebec"));
-      this.continents[0].territories[5].adjacentTerritories.push
-      ("Greenland", "Ontario", "Eastern United States");
-    this.continents[0].territories.push(new Territory("Western United States"));
-      this.continents[0].territories[6].adjacentTerritories.push
-      ("Central America", "Eastern United States", "Ontario", "Alberta");
-    this.continents[0].territories.push(new Territory("Eastern United States"));
-      this.continents[0].territories[7].adjacentTerritories.push
-      ("Central America", "Western United States", "Ontario", "Quebec");
-    this.continents[0].territories.push(new Territory("Central America"));
-      this.continents[0].territories[8].adjacentTerritories.push
-      ("Western United States", "Eastern United States", "Venezuela");
-  this.continents.push(new Continent("South America"));
-    this.continents[1].territories.push(new Territory("Venezuela"));
-    this.continents[1].territories.push(new Territory("Brazil"));
-    this.continents[1].territories.push(new Territory("Peru"));
-    this.continents[1].territories.push(new Territory("Argentina"));
-  this.continents.push(new Continent("Europe"));
-    this.continents[2].territories.push(new Territory("Iceland"));
-    this.continents[2].territories.push(new Territory("Scandinavia"));
-    this.continents[2].territories.push(new Territory("Ukraine"));
-    this.continents[2].territories.push(new Territory("Northern Europe"));
-    this.continents[2].territories.push(new Territory("Southern Europe"));
-    this.continents[2].territories.push(new Territory("Western Europe"));
-    this.continents[2].territories.push(new Territory("Great Britan"));
-  this.continents.push(new Continent("Africa"));
-    this.continents[3].territories.push(new Territory("Egypt"));
-    this.continents[3].territories.push(new Territory("North Africa"));
-    this.continents[3].territories.push(new Territory("Congo"));
-    this.continents[3].territories.push(new Territory("South Africa"));
-    this.continents[3].territories.push(new Territory("East Africa"));
-    this.continents[3].territories.push(new Territory("Madagascar"));
-  this.continents.push(new Continent("Asia"));
-    this.continents[4].territories.push(new Territory("Afghanistan"));
-    this.continents[4].territories.push(new Territory("Ural"));
-    this.continents[4].territories.push(new Territory("Siberia"));
-    this.continents[4].territories.push(new Territory("Yakutsk"));
-    this.continents[4].territories.push(new Territory("Irkutsk"));
-    this.continents[4].territories.push(new Territory("Kamchatka"));
-    this.continents[4].territories.push(new Territory("Japan"));
-    this.continents[4].territories.push(new Territory("Mongolia"));
-    this.continents[4].territories.push(new Territory("China"));
-    this.continents[4].territories.push(new Territory("Siam"));
-    this.continents[4].territories.push(new Territory("India"));
-    this.continents[4].territories.push(new Territory("Middle East"));
-  this.continents.push(new Continent("Australia"));
-    this.continents[5].territories.push(new Territory("Indonesia"));
-    this.continents[5].territories.push(new Territory("New Guinea"));
-    this.continents[5].territories.push(new Territory("Western Australia"));
-    this.continents[5].territories.push(new Territory("Eastern Australia"));
-}
+//  this.continents=[];
+//   this.continents.push(new Continent("North America"));
+//     this.continents[0].territories.push(new Territory("Greenland"));
+//       this.continents[0].territories[0].adjacentTerritories.push
+//       ("Iceland", "Northwest Territory", "Ontario", "Quebec");
+//     this.continents[0].territories.push(new Territory("Northwest Territory"));
+//       this.continents[0].territories[1].adjacentTerritories.push
+//       ("Alaska", "Alberta", "Ontario", "Greenland");
+//     this.continents[0].territories.push(new Territory("Alaska"));
+//       this.continents[0].territories[2].adjacentTerritories.push
+//       ("Kamchatka", "Northwest Territory", "Alberta");
+//     this.continents[0].territories.push(new Territory("Alberta"));
+//       this.continents[0].territories[3].adjacentTerritories.push
+//       ("Alaska", "Northwest Territory", "Ontario", "Western United States");
+//     this.continents[0].territories.push(new Territory("Ontario"));
+//       this.continents[0].territories[4].adjacentTerritories.push
+//       ("Greenland", "Northwest Territory", "Alberta", "Quebec", "Western United States", "Eastern United States");
+//     this.continents[0].territories.push(new Territory("Quebec"));
+//       this.continents[0].territories[5].adjacentTerritories.push
+//       ("Greenland", "Ontario", "Eastern United States");
+//     this.continents[0].territories.push(new Territory("Western United States"));
+//       this.continents[0].territories[6].adjacentTerritories.push
+//       ("Central America", "Eastern United States", "Ontario", "Alberta");
+//     this.continents[0].territories.push(new Territory("Eastern United States"));
+//       this.continents[0].territories[7].adjacentTerritories.push
+//       ("Central America", "Western United States", "Ontario", "Quebec");
+//     this.continents[0].territories.push(new Territory("Central America"));
+//       this.continents[0].territories[8].adjacentTerritories.push
+//       ("Western United States", "Eastern United States", "Venezuela");
+//   this.continents.push(new Continent("South America"));
+//     this.continents[1].territories.push(new Territory("Venezuela"));
+//     this.continents[1].territories.push(new Territory("Brazil"));
+//     this.continents[1].territories.push(new Territory("Peru"));
+//     this.continents[1].territories.push(new Territory("Argentina"));
+//   this.continents.push(new Continent("Europe"));
+//     this.continents[2].territories.push(new Territory("Iceland"));
+//     this.continents[2].territories.push(new Territory("Scandinavia"));
+//     this.continents[2].territories.push(new Territory("Ukraine"));
+//     this.continents[2].territories.push(new Territory("Northern Europe"));
+//     this.continents[2].territories.push(new Territory("Southern Europe"));
+//     this.continents[2].territories.push(new Territory("Western Europe"));
+//     this.continents[2].territories.push(new Territory("Great Britan"));
+//   this.continents.push(new Continent("Africa"));
+//     this.continents[3].territories.push(new Territory("Egypt"));
+//     this.continents[3].territories.push(new Territory("North Africa"));
+//     this.continents[3].territories.push(new Territory("Congo"));
+//     this.continents[3].territories.push(new Territory("South Africa"));
+//     this.continents[3].territories.push(new Territory("East Africa"));
+//     this.continents[3].territories.push(new Territory("Madagascar"));
+//   this.continents.push(new Continent("Asia"));
+//     this.continents[4].territories.push(new Territory("Afghanistan"));
+//     this.continents[4].territories.push(new Territory("Ural"));
+//     this.continents[4].territories.push(new Territory("Siberia"));
+//     this.continents[4].territories.push(new Territory("Yakutsk"));
+//     this.continents[4].territories.push(new Territory("Irkutsk"));
+//     this.continents[4].territories.push(new Territory("Kamchatka"));
+//     this.continents[4].territories.push(new Territory("Japan"));
+//     this.continents[4].territories.push(new Territory("Mongolia"));
+//     this.continents[4].territories.push(new Territory("China"));
+//     this.continents[4].territories.push(new Territory("Siam"));
+//     this.continents[4].territories.push(new Territory("India"));
+//     this.continents[4].territories.push(new Territory("Middle East"));
+//   this.continents.push(new Continent("Australia"));
+//     this.continents[5].territories.push(new Territory("Indonesia"));
+//     this.continents[5].territories.push(new Territory("New Guinea"));
+//     this.continents[5].territories.push(new Territory("Western Australia"));
+//     this.continents[5].territories.push(new Territory("Eastern Australia"));
+// }
 function Objective() {
   this.reward=new Reward("{description}");
 }
@@ -160,6 +160,11 @@ Continent.prototype.findTerritory = function(territoryName) {
       // alert(index);
     }
   });
+}
+Continent.prototype.isOwned = function() {
+  // check to see if all territories have same owner
+  // if same return player designation
+  // or return "none"
 }
 
 function Territory(territoryName) {
