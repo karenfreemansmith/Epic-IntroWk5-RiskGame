@@ -12,6 +12,7 @@ h1 {
   font-family: 'Kumar One', cursive;
   font-size: 100px;
   text-align: center;
+  line-height: 1.5;
 }
 
 h3 {
@@ -119,7 +120,6 @@ li.p5:hover {
 
  .intro #teams{
   margin-left: 42%;
-  margin-top: 5%;
   text-align: left;
   max-width: 300px;
 }

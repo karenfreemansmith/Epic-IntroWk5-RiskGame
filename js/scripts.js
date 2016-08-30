@@ -15,6 +15,8 @@ Die.prototype.roll=function(){
 }
 
 // Frontend Logic
+  var newGame = new Game();
+
 $("form").submit(function(event){
   var playersArray = []; //this is the array of colors players choose before game play
   event.preventDefault();
@@ -22,28 +24,26 @@ $("form").submit(function(event){
   $.each($("input:checked"), function (){
     playersArray.push($(this).val());
   });
-  var newGame = new Game();
 
   playersArray.forEach(function(teamColor){
-
      if(teamColor === "Yellow"){
        var teamYellow = new Player("Yellow");
        newGame.addPlayer(teamYellow);
      }
-     else if (teamColor === "Green"){
+     if (teamColor === "Green"){
        var teamGreen = new Player("Green");
        newGame.addPlayer(teamGreen);
      }
-     else if (teamColor === "Blue"){
+     if (teamColor === "Blue"){
        var teamBlue = new Player("Blue");
        newGame.addPlayer(teamBlue);
      }
-     else if (teamColor === "Red"){
-       var teamBlue = new Player("Red");
+     if (teamColor === "Red"){
+       var teamRed = new Player("Red");
        newGame.addPlayer(teamRed);
      }
-     else if (teamColor === "Black"){
-       var teamBlue = new Player("Black");
+     if (teamColor === "Black"){
+       var teamBlack = new Player("Black");
        newGame.addPlayer(teamBlack);
      }
 
@@ -55,47 +55,49 @@ $("form").submit(function(event){
   var numberOfPlayers = newGame.players.length;
   var activePlayerNumber = 0;
   showActivePlayer(activePlayerNumber);
-});
 
-$("h4").click(function(){
-  var playerName=$(this).text().substr(5);
-  if (playerName === "Yellow") {
-    var playerClass = "p1";
-  } else if(playerName === "Green") {
-    var playerClass = "p2";
-  }else if(playerName === "Blue") {
-    var playerClass = "p3";
-  }else if(playerName === "Red") {
-    var playerClass = "p4";
-  }else if(playerName === "Black") {
-    var playerClass = "p5";
-  }
-  var msg = "";
-  var troopDraft = 0;
-  msg = "<h2 class='"+playerClass+"'>"+$(this).text()+"</h2>";
-  msg += "<h3>Territories Owned:</h3>";
-  msg += "<ul>";
-  newGame.players.forEach(function(player){
-    if (player.name === playerName) {
-      troopDraft = Math.floor(player.territories.length/3);
-      player.territories.forEach(function(territory) {
-        msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
-        newGame.board.forEach(function(continent){
-          continent.territories.forEach(function(t) {
-            if(t.name===territory) {
-              msg+=t.troops;
-            }
+  $("h4").click(function(){
+    var playerName=$(this).text().substr(5);
+    if (playerName === "Yellow") {
+      var playerClass = "p1";
+    } else if(playerName === "Green") {
+      var playerClass = "p2";
+    }else if(playerName === "Blue") {
+      var playerClass = "p3";
+    }else if(playerName === "Red") {
+      var playerClass = "p4";
+    }else if(playerName === "Black") {
+      var playerClass = "p5";
+    }
+    var msg = "";
+    var troopDraft = 0;
+    msg = "<h2 class='"+playerClass+"'>"+$(this).text()+"</h2>";
+    msg += "<h3>Territories Owned:</h3>";
+    msg += "<ul>";
+    newGame.players.forEach(function(player){
+      if (player.name === playerName) {
+        troopDraft = Math.floor(player.territories.length/3);
+        player.territories.forEach(function(territory) {
+          msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
+          newGame.board.forEach(function(continent){
+            continent.territories.forEach(function(t) {
+              if(t.name===territory) {
+                msg+=t.troops;
+              }
+            });
           });
         });
-      });
-    }
-    msg+="</li>";
-  });
+      }
+      msg+="</li>";
+    });
 
-  msg += "</ul>";
-  $("#otherPlayer").html(msg);
-  $("#otherPlayer").show();
+    msg += "</ul>";
+    $("#otherPlayer").html(msg);
+    $("#otherPlayer").show();
+  });
 });
+
+
 
 function showActivePlayer(playerNumber){
 
