@@ -13,3 +13,10 @@ Player.prototype.draftTroops = function() {
 
   return Math.floor(this.territories.length/3);
 }
+
+// function Player() {
+//   this.playerColor="";
+//   this.objectives=[];
+//   this.territories=[];
+// }
+//

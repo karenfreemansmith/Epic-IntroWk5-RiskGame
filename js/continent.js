@@ -13,3 +13,21 @@ Continent.prototype.isOwned = function() {
     return continentOwner;
   });
 }
+
+// function Continent(continentName) {
+//   this.continentName=continentName;
+//   this.continentColor="";
+//   this.territories=[];
+// }
+// Continent.prototype.findTerritory = function(territoryName) {
+//   this.territories.forEach(function(territory, index) {
+//     if(territory.territoryName===territoryName) {
+//       // alert(index);
+//     }
+//   });
+// }
+// Continent.prototype.isOwned = function() {
+//   // check to see if all territories have same owner
+//   // if same return player designation
+//   // or return "none"
+// }

@@ -5,7 +5,7 @@ function Game() {
   var asia = new Continent(7);
   var europe = new Continent(5);
   var australia = new Continent(2);
-  var board = [];
+  this.board = [];
   board.push(northAmerica,southAmerica,africa,asia,europe,australia);
 
   var alaska = new Territory("Alaska", 1);
@@ -156,4 +156,69 @@ Game.prototype.assignTerritories = function(players) {
       });
     });
   }
+}
+
+// function Game() {
+//   this.players=[];
+//   this.dice=[];
+//   this.cards=[];
+//   this.objectives=[];
+// }
+//
+// function Objective() {
+//   this.reward=new Reward("{description}");
+// }
+// function Reward(description) {
+//   this.description=description;
+// }
+
+function Card(name, image, stars) {
+  this.territory=territoryName;
+  this.territory=territoryImage;
+  this.stars=stars;
+  /*
+  ### 42 Card Deck:
+  #Alaska - 1
+  #Argentina - 1
+  #Scandinavia - 1
+  #India - 1
+  #Kamchatka - 1
+  #Mongolia - 1
+  #China - 1
+  #New Guinea - 1
+  #Alberta - 1
+  #Yakutska - 2
+  #Central Africa - 2
+  #Centarl America - 1
+  #Indonesia - 1
+  #Southeast Asia - 1
+  #Eastern Australia - 2
+  #North Africa - 1
+  #Egypt - 1
+  #Ontario - 2
+  #Western Australia - 1
+  #Brazil - 1
+  #East Africa - 2
+  #Madagascar - 1
+  #Greenland - 1
+  #Iceland - 1
+  #Northwest Territory - 2
+  #Ural - 2
+  #South Africa - 1
+  #Western Europe - 2
+  #Northern Europe - 1
+  #Irkutsk - 2
+  #Eastern Canada - 1
+  #Middle East - 1
+  #Western United States - 1
+  #Russia - 1
+  #Venezuela - 2
+  #Eastern United States - 1
+  #Afghanistan - 1
+  #Southern Europe - 1
+  #Peru - 1
+  #Siberia - 1
+  #Great Britain - 2
+  #Japan - 2
+  */
 }
