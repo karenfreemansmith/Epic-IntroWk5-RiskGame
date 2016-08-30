@@ -1,7 +1,7 @@
 function Player(name) {
   this.name=name;
+  this.color="";
   this.territories=[];
-
 }
 Player.prototype.draftTroops = function() {
   var troops=0;

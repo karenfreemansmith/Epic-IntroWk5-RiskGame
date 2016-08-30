@@ -16,29 +16,76 @@ Die.prototype.roll=function(){
 
 // Frontend Logic
  var newGame = new Game();
+ var teamYellow = new Player("Yellow");
+ var teamGreen = new Player("Green");
+ // var teamBlue = new Player("Blue");
+ // var teamRed = new Player("Red");
+ // var teamBlack = new Player ("Black")
+ newGame.addPlayer(teamYellow);
+ newGame.addPlayer(teamGreen);
+ // newGame.addPlayer(teamBlue);
+ // newGame.addPlayer(teamRed);
+ // newGame.addPlayer(teamBlack);
+
+ newGame.assignTerritories();
 
 $("h4").click(function(){
+  //alert($(this).text().substr(5));
+  var playerName=$(this).text().substr(5);
+  if (playerName === "Yellow") {
+    var playerClass = "p1";
+  } else if(playerName === "Green") {
+    var playerClass = "p2";
+  }else if(playerName === "Blue") {
+    var playerClass = "p3";
+  }else if(playerName === "Red") {
+    var playerClass = "p4";
+  }else if(playerName === "Black") {
+    var playerClass = "p5";
+  }
   var msg = "";
-  msg = "<h2>Active Player: Player One</h2>";
-  msg += "<h3>Objectives Achieved:</h3>";
-  msg += "<p id='rewards'>Major Rewards</p>";
-  msg += "<p>Minor Rewards</p>";
+  var troopDraft = 0;
+  msg = "<h2 class='"+playerClass+"'>Active Player: "+$(this).text()+"</h2>";
+  msg += "<h3>Territories Owned:</h3>";
   msg += "<ul>";
-  msg += "<li>Congo: 5</li>";
-  msg += "<li>Peru: 3</li>";
-  msg += "<li>Iceland: 7</li>";
-  msg += "<li>Quebec: 21</li>";
+  newGame.players.forEach(function(player){
+    if (player.name === playerName) {
+      troopDraft = Math.floor(player.territories.length/3);
+      player.territories.forEach(function(territory) {
+        msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
+        newGame.board.forEach(function(continent){
+          continent.territories.forEach(function(t) {
+            if(t.name===territory) {
+              msg+=t.troops;
+            }
+          });
+        });
+      });
+    }
+    msg+="</li>";
+  });
+  // msg += "<li>Congo: 5</li>";
+  // msg += "<li>Peru: 3</li>";
+  // msg += "<li>Iceland: 7</li>";
+  // msg += "<li>Quebec: 21</li>";
+
   msg += "</ul>";
-  msg += "<p>Troop Draft</p>";
+  msg += "<div class='draft'>";
+  msg += "<p>Troop Draft: "+troopDraft+"</p>";
   msg += "<p>Place Troops</p>";
+  msg += "</div>";
+  msg += "<div class='attack'>";
   msg += "<button id='attack'>Attack</button>";
   msg += "<button>End Attack Manuvers</button>";
   msg += "<button>End Turn Manuvers</button>";
-  msg += "<p>Draw Card</p>";
+  msg += "</div>";
   $("#activePlayer").html(msg);
-  $("#activePlayer").toggle();
+  $("#otherPlayer").html(msg);
+  $("#activePlayer").show();
+  $("#otherPlayer").show();
   $("#attack").click(function(){
     $("#battle").show();
+
   });
 });
 

@@ -1,4 +1,5 @@
 function Game() {
+  this.players=[];
   var northAmerica = new Continent(5);
   var southAmerica = new Continent(2);
   var africa = new Continent(3);
@@ -10,7 +11,7 @@ function Game() {
   var alaska = new Territory("Alaska", 1);
   northAmerica.territories.push(alaska);
   alaska.adjacentTerritories.push("Kamchatka", "Northwest Territory", "Alberta");
-  var northwestTerritory = new Territory("Northwest Territory", 1);
+  var northwestTerritory = new Territory("Northwest Territory", 2);
   northAmerica.territories.push(northwestTerritory);
   northwestTerritory.adjacentTerritories.push("Alaska", "Northwest Territory", "Ontario", "Western United States");
   var alberta = new Territory("Alberta", 1);
@@ -35,7 +36,7 @@ function Game() {
   northAmerica.territories.push(centralAmerica);
   centralAmerica.adjacentTerritories.push("Western United States", "Eastern United States", "Venezuela");
 
-  var venezula = new Territory("Venezuela", 1);
+  var venezula = new Territory("Venezuela", 2);
   southAmerica.territories.push(venezula);
   venezula.adjacentTerritories.push("Central America", "Peru", "Brazil");
   var brazil = new Territory("Brazil", 1);
@@ -54,10 +55,10 @@ function Game() {
   var egypt = new Territory("Egypt", 1);
   africa.territories.push(egypt);
   egypt.adjacentTerritories.push("North Africa", "Southern Europe", "Middle East", "East Africa");
-  var eastAfrica = new Territory("East Africa", 1);
+  var eastAfrica = new Territory("East Africa", 2);
   africa.territories.push(eastAfrica);
   eastAfrica.adjacentTerritories.push("Madagascar", "South Africa", "Central Africa", "North Africa", "Egypt", "Middle East");
-  var centralAfrica = new Territory("Central Africa", 1);
+  var centralAfrica = new Territory("Central Africa", 2);
   africa.territories.push(centralAfrica);
   centralAfrica.adjacentTerritories.push("South Africa", "North Africa", "East Africa");
   var southAfrica = new Territory("South Africa", 1);
@@ -70,10 +71,10 @@ function Game() {
   var iceland = new Territory("Iceland", 1);
   europe.territories.push(iceland);
   iceland.adjacentTerritories.push("Greenland", "Scandinavia", "Northern Europe", "Great Britain");
-  var greatBritain = new Territory("Great Britain", 1);
+  var greatBritain = new Territory("Great Britain", 2);
   europe.territories.push(greatBritain);
   greatBritain.adjacentTerritories.push("Iceland", "Scandinavia", "Northern Europe", "Western Europe");
-  var westernEurope = new Territory("Western Europe", 1);
+  var westernEurope = new Territory("Western Europe", 2);
   europe.territories.push(westernEurope);
   westernEurope.adjacentTerritories.push("Great Britain", "Northern Europe", "Southern Europe", "North Africa");
   var northernEurope = new Territory("Northern Europe", 1);
@@ -89,22 +90,22 @@ function Game() {
   europe.territories.push(russia);
   russia.adjacentTerritories.push("Scandinavia", "Northern Europe", "Southern Europe", "Middle East", "Afghanistan", "Ural");
 
-  var ural = new Territory("Ural", 1);
+  var ural = new Territory("Ural", 2);
   asia.territories.push(ural);
   ural.adjacentTerritories.push("Russia", "Afghanistan", "China", "Siberia");
   var siberia = new Territory("Siberia", 1);
   asia.territories.push(siberia);
   siberia.adjacentTerritories.push("Ural", "China", "Mongolia", "Irkutsk", "Yakutsk");
-  var yakutsk = new Territory("Yakutsk", 1);
+  var yakutsk = new Territory("Yakutsk", 2);
   asia.territories.push(yakutsk);
   yakutsk.adjacentTerritories.push("Siberia", "Irkutsk", "Kamchatka");
   var kamchatka = new Territory("Kamchatka", 1);
   asia.territories.push(kamchatka);
   kamchatka.adjacentTerritories.push("Yakutsk", "Mongolia", "Irkutsk", "Japan", "Alaska");
-  var irkutsk = new Territory("Irkutsk", 1);
+  var irkutsk = new Territory("Irkutsk", 2);
   asia.territories.push(irkutsk);
   irkutsk.adjacentTerritories.push("Siberia", "Yakutsk", "Kamchatka","Mongolia");
-  var japan = new Territory("Japan", 1);
+  var japan = new Territory("Japan", 2);
   asia.territories.push(japan);
   japan.adjacentTerritories.push("Kamchatka", "Mongolia");
   var mongolia = new Territory("Mongolia", 1);
@@ -135,24 +136,30 @@ function Game() {
   var westernAustralia = new Territory("Western Australia", 1);
   australia.territories.push(westernAustralia);
   westernAustralia.adjacentTerritories.push("Indonesia", "Eastern Australia");
-  var easternAustralia = new Territory("Eastern Australia", 1);
+  var easternAustralia = new Territory("Eastern Australia", 2);
   australia.territories.push(easternAustralia);
   easternAustralia.adjacentTerritories.push("New Guinea", "Western Australia");
 }
 
-Game.prototype.assignTerritories = function(players) {
-  this.numberOfPlayers=players; //an array or player designations
+Game.prototype.assignTerritories = function() {
   var counter=0;
-  for(i=0; i<players.length; i++) {
+  var numberOfPlayers=this.players.length;
+  for(i=0; i<numberOfPlayers; i++) {
+    thisPlayer=this.players[i];
     this.board.forEach(function(continent) {
       continent.territories.forEach(function(territory) {
-        if(counter%players.length===i) {
-          territory.owner=players[i].name;
+        if(counter%numberOfPlayers===i) {
+          territory.owner=thisPlayer.name;
+          thisPlayer.territories.push(territory.name);
         }
         counter++;
       });
     });
   }
+}
+
+Game.prototype.addPlayer = function(player) {
+  this.players.push(player);
 }
 
 // function Game() {
@@ -169,10 +176,10 @@ Game.prototype.assignTerritories = function(players) {
 //   this.description=description;
 // }
 
-function Card(name, image, stars) {
-  this.territory=territoryName;
-  this.territory=territoryImage;
-  this.stars=stars;
+// function Card(name, image, stars) {
+//   this.territory=territoryName;
+//   this.territory=territoryImage;
+//   this.stars=stars;
   /*
   ### 42 Card Deck:
   #Alaska - 1
@@ -218,4 +225,4 @@ function Card(name, image, stars) {
   #Great Britain - 2
   #Japan - 2
   */
-}
+// }

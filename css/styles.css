@@ -26,7 +26,7 @@ h4 {
 
 }*/
 
-#activePlayer {
+#activePlayer, #otherPlayer {
   display: none;
   font-family: 'Baloo Paaji', cursive;
   background-color: rgba(255, 255, 255, 0.7);
@@ -37,27 +37,27 @@ h4 {
   box-sizing: border-box;
 }
 
-#activePlayer p {
+#activePlayer p, #otherPlayer p {
   font-size: 20px;
 }
 
-#p1 {
+.p1 {
   color: goldenrod;
 }
 
-#p2 {
+.p2 {
   color: darkgreen;
 }
 
-#p3 {
+.p3 {
   color: darkblue;
 }
 
-#p4 {
+.p4 {
   color: darkred;
 }
 
-#p5 {
+.p5 {
   color: black;
 }
 
@@ -76,19 +76,20 @@ h4 {
 
 #teams {
   font-family: 'Baloo Paaji', cursive;
+  text-align: center;
   background-color: rgba(255, 255, 255, 0.7);
   border-radius: 15px;
   padding: 15px;
   box-shadow: 3px 3px 10px grey;
-  max-width: 200px;
-  min-width: 200px;
+  /*max-width: 200px;
+  min-width: 200px;*/
   box-sizing: border-box;
 }
 
 .transparent {
   background-color: rgba(255, 255, 255, 0.7);
   width: 100%;
-  height: 1000px; /*changed to px value because of missing bottom on my laptop, may not need to be this tall, on my screen it was about 300px too short - the transparent div when the player card was shown did not drop down to cover the whole map */
+  height: 100%; /*changed to px value because of missing bottom on my laptop, may not need to be this tall, on my screen it was about 300px too short - the transparent div when the player card was shown did not drop down to cover the whole map */
 }
 .red {
   width: 70px;
@@ -124,4 +125,8 @@ h4 {
   font-size: 45px;
   display: none;
   float: left;
+}
+
+.attack {
+  display: none;
 }
