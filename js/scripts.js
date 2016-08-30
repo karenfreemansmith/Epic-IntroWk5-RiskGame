@@ -28,10 +28,23 @@ Die.prototype.roll=function(){
  newGame.addPlayer(teamBlack);
 
  newGame.assignTerritories();
- showActivePlayer(0);
+
+var numberOfPlayers = newGame.players.length;
+var activePlayerNumber = 0;
+ showActivePlayer(activePlayerNumber);
+
+ $("#end").click(function() {
+   if (activePlayerNumber < numberOfPlayers) {
+     activePlayerNumber += 1;
+     alert("next player: " + activePlayerNumber);
+   } else {
+     activePlayerNumber = 0;
+     alert("start over");
+   }
+   showActivePlayer(activePlayerNumber);
+ });
 
 $("h4").click(function(){
-  //alert($(this).text().substr(5));
   var playerName=$(this).text().substr(5);
   if (playerName === "Yellow") {
     var playerClass = "p1";
@@ -106,7 +119,6 @@ function showActivePlayer(playerNumber){
     }
     msg+="</li>";
   });
-
   msg += "</ul>";
   msg += "<div class='draft'>";
   msg += "<p>Troop Draft: "+troopDraft+"</p>";
@@ -115,6 +127,7 @@ function showActivePlayer(playerNumber){
   msg += "<div class='attack'>";
   msg += "<button id='attack'>Attack</button>";
   msg += "<button id='end'>End Turn</button>";
+  msg += "</div>";
   $("#activePlayer").html(msg);
   $("#activePlayer").show();
   $("#attack").click(function(){
