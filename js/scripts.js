@@ -118,13 +118,12 @@ function showActivePlayer(playerNumber){
   msg += "<button class='end'>End Turn</button>";
   msg += "</div>";
 
-
   $("#activePlayer").html(msg);
   $("#activePlayer").show();
 
   $("button.end").click(function() {
     if (activePlayerNumber < numberOfPlayers-1) {
-      alert("next player: " + activePlayerNumber);
+      activePlayerNumber += 1;
     } else {
       activePlayerNumber = 0;
     }
