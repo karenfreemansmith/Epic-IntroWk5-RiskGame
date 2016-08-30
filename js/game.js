@@ -19,7 +19,7 @@ function Game() {
   alberta.adjacentTerritories.push("Alaska", "Northwest Territory", "Ontario", "Western United States");
   var ontario = new Territory("Ontario", 1);
   northAmerica.territories.push(ontario);
-  ontario.adjacentTerritories.push("Northwest Territory", "Greenland", "Easter Canada", "Alberta", "Western United States", "Eastern United States");
+  ontario.adjacentTerritories.push("Northwest Territory", "Greenland", "Eastern Canada", "Alberta", "Western United States", "Eastern United States");
   var greenland = new Territory("Greenland", 1);
   northAmerica.territories.push(greenland);
   greenland.adjacentTerritories.push("Northwest Territory", "Ontario", "Eastern Canada", "Iceland");
