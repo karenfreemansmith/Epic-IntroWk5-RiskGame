@@ -94,7 +94,7 @@ function showActivePlayer(playerNumber){
   msg += "</ul>";
   msg += "<div class='draft'>";
   msg += "<p>Troop Draft: <span id='troopsDrafted'></span></p>";
-  msg += "<p>Place Troops in <span id='placeTroopsTerritory'></span> ";
+  msg += "<p>Place Troops in <br><span id='placeTroopsTerritory'></span> ";
   msg += "<select id='numberOfTroopsPlaced'>";
   msg += "</select></p>"
   msg += "</div>";
@@ -136,6 +136,7 @@ function showActivePlayer(playerNumber){
   $("#activePlayer").show();
   $("#numberOfTroopsPlaced").change(function(){
     alert($("#numberOfTroopsPlaced").val());
+    alert(troopDraft);
   });
   $("button.end").click(function() {
     if (activePlayerNumber < numberOfPlayers-1) {
