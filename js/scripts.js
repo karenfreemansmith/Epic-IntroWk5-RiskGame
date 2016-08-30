@@ -74,7 +74,6 @@ $("h4").click(function(){
 });
 
 function showActivePlayer(playerNumber){
-
   var playerName=newGame.players[playerNumber].name;
   if (playerName === "Yellow") {
     var playerClass = "p1";
@@ -91,27 +90,13 @@ function showActivePlayer(playerNumber){
   var troopDraft = 0;
   msg = "<h2 class='"+playerClass+"'>Team "+playerName+"</h2>";
   msg += "<h3>Territories Owned:</h3>";
-  msg += "<ul>";
-  newGame.players.forEach(function(player){
-    if (player.name === playerName) {
-      troopDraft = Math.floor(player.territories.length/3);
-      player.territories.forEach(function(territory) {
-        msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
-        newGame.board.forEach(function(continent){
-          continent.territories.forEach(function(t) {
-            if(t.name===territory) {
-              msg+=t.troops;
-            }
-          });
-        });
-      });
-    }
-    msg+="</li>";
-  });
+  msg += "<ul id='activePlayerTerritories'>";
   msg += "</ul>";
   msg += "<div class='draft'>";
-  msg += "<p>Troop Draft: "+troopDraft+"</p>";
-  msg += "<p>Place Troops</p>";
+  msg += "<p>Troop Draft: <span id='troopsDrafted'></span></p>";
+  msg += "<p>Place Troops in <span id='placeTroopsTerritory'></span> ";
+  msg += "<select id='numberOfTroopsPlaced'>";
+  msg += "</select></p>"
   msg += "</div>";
   msg += "<div class='attack'>";
   msg += "<button id='attack'>Attack</button>";
@@ -119,14 +104,47 @@ function showActivePlayer(playerNumber){
   msg += "</div>";
 
   $("#activePlayer").html(msg);
-  $("#activePlayer").show();
+  // activePlayerTerritories
+  newGame.players.forEach(function(player){
+    if (player.name === playerName) {
+      troopDraft = Math.floor(player.territories.length/3);
+      $("#troopsDrafted").append(troopDraft);
+      player.territories.forEach(function(territory) {
+        msg = "<li class = '"+playerClass+"'><span class='territory'>"+territory+ ": ";
+        newGame.board.forEach(function(continent){
+          continent.territories.forEach(function(t) {
+            if(t.name===territory) {
+              msg+=t.troops;
+              msg+="</span></li>";
+              $("#activePlayerTerritories").append(msg);
+              $(".territory").last().click(function() {
+                $("#placeTroopsTerritory").text(t.name);
+                $("#numberOfTroopsPlaced").empty();
+                for (var i=t.troops; i<=troopDraft+t.troops; i++) {
+                  $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
+                }
+                // alert(t.troops);
+                // alert(troopDraft);
+              });
+            }
+          });
+        });
+      });
+    }
+  });
 
+  $("#activePlayer").show();
+  $("#numberOfTroopsPlaced").change(function(){
+    alert($("#numberOfTroopsPlaced").val());
+  });
   $("button.end").click(function() {
     if (activePlayerNumber < numberOfPlayers-1) {
       activePlayerNumber += 1;
     } else {
       activePlayerNumber = 0;
     }
+    $("#battle").hide();
+    $("#dice").hide();
     showActivePlayer(activePlayerNumber);
   });
   $("#attack").click(function(){
