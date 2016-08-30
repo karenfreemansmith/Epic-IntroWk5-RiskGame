@@ -15,6 +15,12 @@ Die.prototype.roll=function(){
 }
 
 // Frontend Logic
+$("form").submit(function(event){
+  event.preventDefault();
+  $(".intro").slideUp();
+  $(".container").slideDown();
+});
+
  var newGame = new Game();
  var teamYellow = new Player("Yellow");
  var teamGreen = new Player("Green");
