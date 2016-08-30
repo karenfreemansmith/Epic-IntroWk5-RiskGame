@@ -31,18 +31,7 @@ Die.prototype.roll=function(){
 
 var numberOfPlayers = newGame.players.length;
 var activePlayerNumber = 0;
- showActivePlayer(activePlayerNumber);
-
- $("#end").click(function() {
-   if (activePlayerNumber < numberOfPlayers) {
-     activePlayerNumber += 1;
-     alert("next player: " + activePlayerNumber);
-   } else {
-     activePlayerNumber = 0;
-     alert("start over");
-   }
-   showActivePlayer(activePlayerNumber);
- });
+showActivePlayer(activePlayerNumber);
 
 $("h4").click(function(){
   var playerName=$(this).text().substr(5);
@@ -126,10 +115,21 @@ function showActivePlayer(playerNumber){
   msg += "</div>";
   msg += "<div class='attack'>";
   msg += "<button id='attack'>Attack</button>";
-  msg += "<button id='end'>End Turn</button>";
+  msg += "<button class='end'>End Turn</button>";
   msg += "</div>";
+
+
   $("#activePlayer").html(msg);
   $("#activePlayer").show();
+
+  $("button.end").click(function() {
+    if (activePlayerNumber < numberOfPlayers-1) {
+      alert("next player: " + activePlayerNumber);
+    } else {
+      activePlayerNumber = 0;
+    }
+    showActivePlayer(activePlayerNumber);
+  });
   $("#attack").click(function(){
     $("#battle").show();
   });
