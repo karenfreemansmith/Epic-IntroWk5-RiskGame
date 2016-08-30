@@ -15,7 +15,7 @@ Die.prototype.roll=function(){
 }
 
 // Frontend Logic
-var newGame = new Game();
+ var newGame = new Game();
 
 $("h4").click(function(){
   var msg = "";

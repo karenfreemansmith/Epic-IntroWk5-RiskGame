@@ -5,8 +5,7 @@ function Game() {
   var asia = new Continent(7);
   var europe = new Continent(5);
   var australia = new Continent(2);
-  this.board = [];
-  board.push(northAmerica,southAmerica,africa,asia,europe,australia);
+  this.board = [northAmerica,southAmerica,africa,asia,europe,australia];
 
   var alaska = new Territory("Alaska", 1);
   northAmerica.territories.push(alaska);
@@ -139,14 +138,12 @@ function Game() {
   var easternAustralia = new Territory("Eastern Australia", 1);
   australia.territories.push(easternAustralia);
   easternAustralia.adjacentTerritories.push("New Guinea", "Western Australia");
-
-
 }
 
 Game.prototype.assignTerritories = function(players) {
   this.numberOfPlayers=players; //an array or player designations
   var counter=0;
-  for(i=0, i<players.length, i++) {
+  for(i=0; i<players.length; i++) {
     this.board.forEach(function(continent) {
       continent.territories.forEach(function(territory) {
         if(counter%players.length===i) {
