@@ -32,14 +32,16 @@ $("h4").click(function(){
   msg += "<p>Troop Draft</p>";
   msg += "<p>Place Troops</p>";
   msg += "<button id='attack'>Attack</button>";
-  msg += "<button>End Attack Manuvers</button>";
-  msg += "<button>End Turn Manuvers</button>";
+  msg += "<button id='end'>End Turn</button>";
   msg += "<p>Draw Card</p>";
   $("#activePlayer").html(msg);
-  $("#activePlayer").toggle();
+  $("#activePlayer").show();
   $("#attack").click(function(){
     $("#battle").show();
   });
+  // $("#end").click(function(){
+  //   $("#dice").hide();
+  // });
 });
 
 $("#battle").click(function(){
@@ -48,16 +50,25 @@ $("#battle").click(function(){
   var blackOne =  new Die(6, "attack", "black");
   var blackTwo =  new Die(6, "attack", "black");
   var blackThree =  new Die(6, "attack", "black");
+  var redArray = [];
+  var blackArray = [];
   redOne.roll();
   redTwo.roll();
   blackOne.roll();
-  blackOne.roll();
-  blackOne.roll();
+  blackTwo.roll();
+  blackThree.roll();
+  redArray.push(redOne.value, redTwo.value);
+  blackArray.push(blackOne.value, blackTwo.value, blackThree.value);
+  function sortArray(){
+    redArray.sort(function(a, b){return b-a});
+    blackArray.sort(function(a, b){return b-a});
+  }
+  sortArray();
   $(".red").show();
   $(".black").show();
-  $("#defenseOne").text(redOne.value);
-  $("#defenseTwo").text(redTwo.value);
-  $("#attackOne").text(blackOne.value);
-  $("#attackTwo").text(blackTwo.value);
-  $("#attackThree").text(blackThree.value);
+  $("#defenseOne").text(redArray[0]);
+  $("#defenseTwo").text(redArray[1]);
+  $("#attackOne").text(blackArray[0]);
+  $("#attackTwo").text(blackArray[1]);
+  $("#attackThree").text(blackArray[2]);
 });

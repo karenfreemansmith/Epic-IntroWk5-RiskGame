@@ -73,6 +73,14 @@ h4 {
   display: none;
   box-sizing: border-box;
 }
+#battle:active,
+#battle:focus,
+#battle.active {
+  background-image: none;
+  outline: 0;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+}
 
 #teams {
   font-family: 'Baloo Paaji', cursive;
@@ -85,11 +93,6 @@ h4 {
   box-sizing: border-box;
 }
 
-.transparent {
-  background-color: rgba(255, 255, 255, 0.7);
-  width: 100%;
-  height: 1000px; /*changed to px value because of missing bottom on my laptop, may not need to be this tall, on my screen it was about 300px too short - the transparent div when the player card was shown did not drop down to cover the whole map */
-}
 .red {
   width: 70px;
   height: 70px;
