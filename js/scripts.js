@@ -136,7 +136,6 @@ function showActivePlayer(playerNumber){
 
 
 $("#battle").click(function(){
-  debugger;
   var redOne =  new Die(6, "defense", "red");
   var redTwo =  new Die(6, "defense", "red");
   var blackOne =  new Die(6, "attack", "black");
@@ -202,5 +201,33 @@ $("#battle").click(function(){
     }
     else {
     alert("You do not have enough troops here to battle.");
+  }
+  //determines which player won dice battle
+  if ((blackArray[0] > redArray[0]) && (blackArray[1] > redArray[1])) {
+    $("#winner").text("Attack wins both battles!");
+  }
+  else if ((blackArray[0] < redArray[0]) && (blackArray[1] < redArray[1])) {
+    $("#winner").text("Defense wins both battles");
+  }
+  else if ((blackArray[0] > redArray[0]) && (blackArray[1] < redArray[1])) {
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] < redArray[0]) && (blackArray[1] > redArray[1])){
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] === redArray[0]) && (blackArray[1] === redArray[1])){
+    $("#winner").text("Defense wins both battles");
+  }
+  else if ((blackArray[0] === redArray[0]) && (blackArray[1] > redArray[1])){
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] === redArray[0]) && (blackArray[1] < redArray[1])){
+    $("#winner").text("Defense wins both");
+  }
+  else if ((blackArray[0] > redArray[0]) && (blackArray[1] === redArray[1])){
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] < redArray[0]) && (blackArray[1] === redArray[1])){
+    $("#winner").text("Defense wins both battles");
   }
 });

@@ -89,11 +89,14 @@ h4 {
   min-width: 200px;*/
   box-sizing: border-box;
 }
-
+#winner {
+  font-size: 25px;
+}
 .red {
   width: 70px;
   height: 70px;
-  background-color: #993300;
+  background-color: #b30000;
+  /*background-color: #993300;*/
   margin-right: 20px;
   margin-top: 20px;
   border-radius: 10px;
