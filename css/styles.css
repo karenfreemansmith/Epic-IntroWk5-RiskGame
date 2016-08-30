@@ -22,10 +22,6 @@ h4 {
   background-color: darkred;
 }
 
-/*#dice button:hover {
-
-}*/
-
 #activePlayer {
   display: none;
   font-family: 'Baloo Paaji', cursive;
