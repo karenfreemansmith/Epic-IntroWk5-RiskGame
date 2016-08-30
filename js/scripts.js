@@ -15,63 +15,89 @@ Die.prototype.roll=function(){
 }
 
 // Frontend Logic
- var newGame = new Game();
- var teamYellow = new Player("Yellow");
- var teamGreen = new Player("Green");
- var teamBlue = new Player("Blue");
- var teamRed = new Player("Red");
- var teamBlack = new Player ("Black");
- newGame.addPlayer(teamYellow);
- newGame.addPlayer(teamGreen);
- newGame.addPlayer(teamBlue);
- newGame.addPlayer(teamRed);
- newGame.addPlayer(teamBlack);
+  var newGame = new Game();
 
- newGame.assignTerritories();
+$("form").submit(function(event){
+  var playersArray = []; //this is the array of colors players choose before game play
+  event.preventDefault();
 
-var numberOfPlayers = newGame.players.length;
-var activePlayerNumber = 0;
-showActivePlayer(activePlayerNumber);
-
-$("h4").click(function(){
-  var playerName=$(this).text().substr(5);
-  if (playerName === "Yellow") {
-    var playerClass = "p1";
-  } else if(playerName === "Green") {
-    var playerClass = "p2";
-  }else if(playerName === "Blue") {
-    var playerClass = "p3";
-  }else if(playerName === "Red") {
-    var playerClass = "p4";
-  }else if(playerName === "Black") {
-    var playerClass = "p5";
-  }
-  var msg = "";
-  var troopDraft = 0;
-  msg = "<h2 class='"+playerClass+"'>"+$(this).text()+"</h2>";
-  msg += "<h3>Territories Owned:</h3>";
-  msg += "<ul>";
-  newGame.players.forEach(function(player){
-    if (player.name === playerName) {
-      troopDraft = Math.floor(player.territories.length/3);
-      player.territories.forEach(function(territory) {
-        msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
-        newGame.board.forEach(function(continent){
-          continent.territories.forEach(function(t) {
-            if(t.name===territory) {
-              msg+=t.troops;
-            }
-          });
-        });
-      });
-    }
-    msg+="</li>";
+  $.each($("input:checked"), function (){
+    playersArray.push($(this).val());
   });
 
-  msg += "</ul>";
-  $("#otherPlayer").html(msg);
-  $("#otherPlayer").show();
+  playersArray.forEach(function(teamColor){
+     if(teamColor === "Yellow"){
+       var teamYellow = new Player("Yellow");
+       newGame.addPlayer(teamYellow);
+     }
+     if (teamColor === "Green"){
+       var teamGreen = new Player("Green");
+       newGame.addPlayer(teamGreen);
+     }
+     if (teamColor === "Blue"){
+       var teamBlue = new Player("Blue");
+       newGame.addPlayer(teamBlue);
+     }
+     if (teamColor === "Red"){
+       var teamRed = new Player("Red");
+       newGame.addPlayer(teamRed);
+     }
+     if (teamColor === "Black"){
+       var teamBlack = new Player("Black");
+       newGame.addPlayer(teamBlack);
+     }
+
+   });
+
+  newGame.assignTerritories();
+  $(".intro").slideUp();
+  $(".container").slideDown();
+  var numberOfPlayers = newGame.players.length;
+  var activePlayerNumber = 0;
+  showActivePlayer(activePlayerNumber);
+
+  $("h4").click(function(){
+    var playerName=$(this).text().substr(5);
+    if (playerName === "Yellow") {
+      var playerClass = "p1";
+    } else if(playerName === "Green") {
+      var playerClass = "p2";
+    }else if(playerName === "Blue") {
+      var playerClass = "p3";
+    }else if(playerName === "Red") {
+      var playerClass = "p4";
+    }else if(playerName === "Black") {
+      var playerClass = "p5";
+    }
+    var msg = "";
+    var troopDraft = 0;
+    msg = "<h2 class='"+playerClass+"'>"+$(this).text()+"</h2>";
+    msg += "<h3>Territories Owned:</h3>";
+    msg += "<ul>";
+    newGame.players.forEach(function(player){
+      if (player.name === playerName) {
+        troopDraft = Math.floor(player.territories.length/3);
+        player.territories.forEach(function(territory) {
+          msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
+          newGame.board.forEach(function(continent){
+            continent.territories.forEach(function(t) {
+              if(t.name===territory) {
+                msg+=t.troops;
+              }
+            });
+          });
+        });
+      }
+      msg+="</li>";
+    });
+
+    msg += "</ul>";
+    $("#otherPlayer").html(msg);
+    $("#otherPlayer").show();
+  });
 });
+
+
 
 function showActivePlayer(playerNumber){
   var playerName=newGame.players[playerNumber].name;

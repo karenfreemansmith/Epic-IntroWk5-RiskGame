@@ -9,50 +9,78 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <div class="transparent">
-      <div class="container">
-        <h1>Risk</h1>
-        <div class="row">
-          <div class="col-sm-4">
-            <div id="activePlayer">
-            </div>
-          </div>
-          <div class="col-sm-4" id="teams">
-            <h4 class="p1">Team Yellow</h4>
-            <h4 class="p2">Team Green</h4>
-            <h4 class="p3">Team Blue</h4>
-            <h4 class="p4">Team Red</h4>
-            <h4 class="p5">Team Black</h4>
-          </div>
-          <div class="col-sm-4">
-            <div id="otherPlayer">
-            </div>
-          </div>
-        </div>
-        <!-- dice divs start -->
-        <div id="dice" class="col-sm-4">
-          <div class="row">
-            <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
-          </div>
-          <div class="row attackDice">
-            <div class="black" id="attackOne"></div>
-            <div class="black" id="attackTwo"></div>
-            <div class="black" id="attackThree"></div>
-          </div>
-          <div class="row defenseDice">
-            <div class="red" id="defendOne"></div>
-            <div class="red" id="defendTwo"></div>
-          </div>
-          <h2 id="winner"></h2>
-        </div>
-        <!-- dice divs end -->
+    <h1>Risk</h1>
+    <div class="intro">
+      <!-- <h1>Risk</h1> -->
+      <div class="col-sm-4" id="teams">
+        <h3>Select Your Teams:</h3>
+        <form>
+          <label class="form-check-label p1">
+              <input class="form-check-input" type="checkbox" value="Yellow">
+              Team Yellow
+          </label></br>
+          <label class="form-check-label p2">
+              <input class="form-check-input" type="checkbox" value="Green">
+              Team Green
+          </label></br>
+          <label class="form-check-label p3">
+              <input class="form-check-input" type="checkbox" value="Blue">
+              Team Blue
+          </label></br>
+          <label class="form-check-label p4">
+              <input class="form-check-input" type="checkbox" value="Red">
+              Team Red
+          </label></br>
+          <label class="form-check-label p5">
+              <input class="form-check-input" type="checkbox" value="Black">
+              Team Black
+          </label>
+          <button id="letsPlay" type="submit" class="btn btn-classic">Let's Play!</button>
+        </form>
       </div>
     </div>
-  <script src="js/jquery-3.1.0.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/territory.js"></script>
-  <script src="js/continent.js"></script>
-  <script src="js/game.js"></script>
-  <script src="js/scripts.js"></script>
+    <div class="container">
+      <!-- <h1>Risk</h1> -->
+      <div class="row">
+        <div class="col-sm-4">
+          <div id="activePlayer">
+          </div>
+        </div>
+        <div class="col-sm-4" id="teams">
+          <h4 class="p1">Team Yellow</h4>
+          <h4 class="p2">Team Green</h4>
+          <h4 class="p3">Team Blue</h4>
+          <h4 class="p4">Team Red</h4>
+          <h4 class="p5">Team Black</h4>
+        </div>
+        <div class="col-sm-4">
+          <div id="otherPlayer">
+          </div>
+        </div>
+      </div>
+      <!-- dice divs start -->
+      <div id="dice" class="col-sm-4">
+        <div class="row">
+          <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
+        </div>
+        <div class="row attackDice">
+          <div class="black" id="attackOne"></div>
+          <div class="black" id="attackTwo"></div>
+          <div class="black" id="attackThree"></div>
+        </div>
+        <div class="row defenseDice">
+          <div class="red" id="defendOne"></div>
+          <div class="red" id="defendTwo"></div>
+        </div>
+        <h2 id="winner"></h2>
+      </div>
+      <!-- dice divs end -->
+    </div>
+    <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/territory.js"></script>
+    <script src="js/continent.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
