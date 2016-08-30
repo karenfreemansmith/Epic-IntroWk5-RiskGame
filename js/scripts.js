@@ -114,9 +114,7 @@ function showActivePlayer(playerNumber){
   msg += "</div>";
   msg += "<div class='attack'>";
   msg += "<button id='attack'>Attack</button>";
-  msg += "<button>End Attack Manuvers</button>";
-  msg += "<button>End Turn Manuvers</button>";
-  msg += "</div>";
+  msg += "<button id='end'>End Turn</button>";
   $("#activePlayer").html(msg);
   $("#activePlayer").show();
   $("#attack").click(function(){
@@ -124,22 +122,73 @@ function showActivePlayer(playerNumber){
   });
 }
 
+
 $("#battle").click(function(){
+  debugger;
   var redOne =  new Die(6, "defense", "red");
   var redTwo =  new Die(6, "defense", "red");
   var blackOne =  new Die(6, "attack", "black");
   var blackTwo =  new Die(6, "attack", "black");
   var blackThree =  new Die(6, "attack", "black");
-  redOne.roll();
-  redTwo.roll();
-  blackOne.roll();
-  blackOne.roll();
-  blackOne.roll();
-  $(".red").show();
-  $(".black").show();
-  $("#defenseOne").text(redOne.value);
-  $("#defenseTwo").text(redTwo.value);
-  $("#attackOne").text(blackOne.value);
-  $("#attackTwo").text(blackTwo.value);
-  $("#attackThree").text(blackThree.value);
+  var redArray = [];
+  var blackArray = [];
+  function sortArray(){
+    redArray.sort(function(a, b){return b-a});
+    blackArray.sort(function(a, b){return b-a});
+  }
+  // troop/dice roll logic
+  var player1troops = 5; //Inputted numbers for testing
+  var player2troops = 3;  //Inputted numbers for testing
+
+  // for defend(red) dice
+    if (player2troops >= 2){
+    redOne.roll();
+    redTwo.roll();
+    redArray.push(redOne.value, redTwo.value);
+    sortArray();
+    $("#defendOne").text(redArray[0]);
+    $("#defendTwo").text(redArray[1]);
+    $("#defendOne").show();
+    $("#defendTwo").show();
+    }
+    else if (player2troops === 1) {
+    redOne.roll();
+    redArray.push(redOne.value);
+    $("#defendOne").text(redArray[0]);
+    $("#defendOne").show();
+    }
+
+  // for attack(black) dice
+    if (player1troops > 3){
+    blackOne.roll();
+    blackTwo.roll();
+    blackThree.roll();
+    blackArray.push(blackOne.value, blackTwo.value, blackThree.value);
+    sortArray();
+    $("#attackOne").text(blackArray[0]);
+    $("#attackTwo").text(blackArray[1]);
+    $("#attackThree").text(blackArray[2]);
+    $("#attackOne").show();
+    $("#attackTwo").show();
+    $("#attackThree").show();
+    }
+    else if (player1troops === 3) {
+    blackOne.roll();
+    blackTwo.roll();
+    blackArray.push(blackOne.value, blackTwo.value);
+    sortArray();
+    $("#attackOne").text(blackArray[0]);
+    $("#attackTwo").text(blackArray[1]);
+    $("#attackOne").show();
+    $("#attackTwo").show();
+    }
+    else if (player1troops === 2) {
+    blackOne.roll();
+    blackArray.push(blackOne.value);
+    $("#attackOne").text(blackArray[0]);
+    $("#attackOne").show();
+    }
+    else {
+    alert("You do not have enough troops here to battle.");
+  }
 });
