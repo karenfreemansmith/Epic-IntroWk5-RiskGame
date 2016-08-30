@@ -16,28 +16,46 @@ Die.prototype.roll=function(){
 
 // Frontend Logic
 $("form").submit(function(event){
+  var playersArray = []; //this is the array of colors players choose before game play
   event.preventDefault();
+
+  $.each($("input:checked"), function (){
+    playersArray.push($(this).val());
+  });
+  var newGame = new Game();
+
+  playersArray.forEach(function(teamColor){
+
+     if(teamColor === "Yellow"){
+       var teamYellow = new Player("Yellow");
+       newGame.addPlayer(teamYellow);
+     }
+     else if (teamColor === "Green"){
+       var teamGreen = new Player("Green");
+       newGame.addPlayer(teamGreen);
+     }
+     else if (teamColor === "Blue"){
+       var teamBlue = new Player("Blue");
+       newGame.addPlayer(teamBlue);
+     }
+     else if (teamColor === "Red"){
+       var teamBlue = new Player("Red");
+       newGame.addPlayer(teamRed);
+     }
+     else if (teamColor === "Black"){
+       var teamBlue = new Player("Black");
+       newGame.addPlayer(teamBlack);
+     }
+
+   });
+
+  newGame.assignTerritories();
   $(".intro").slideUp();
   $(".container").slideDown();
+  var numberOfPlayers = newGame.players.length;
+  var activePlayerNumber = 0;
+  showActivePlayer(activePlayerNumber);
 });
-
- var newGame = new Game();
- var teamYellow = new Player("Yellow");
- var teamGreen = new Player("Green");
- var teamBlue = new Player("Blue");
- var teamRed = new Player("Red");
- var teamBlack = new Player ("Black");
- newGame.addPlayer(teamYellow);
- newGame.addPlayer(teamGreen);
- newGame.addPlayer(teamBlue);
- newGame.addPlayer(teamRed);
- newGame.addPlayer(teamBlack);
-
- newGame.assignTerritories();
-
-var numberOfPlayers = newGame.players.length;
-var activePlayerNumber = 0;
-showActivePlayer(activePlayerNumber);
 
 $("h4").click(function(){
   var playerName=$(this).text().substr(5);
