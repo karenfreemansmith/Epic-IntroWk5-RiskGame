@@ -15,7 +15,9 @@ Die.prototype.roll=function(){
 }
 
 // Frontend Logic
-  var newGame = new Game();
+var newGame = new Game();
+var activePlayerNumber = 0;
+var numberOfPlayers = 0;``
 
 $("form").submit(function(event){
   var playersArray = []; //this is the array of colors players choose before game play
@@ -52,8 +54,8 @@ $("form").submit(function(event){
   newGame.assignTerritories();
   $(".intro").slideUp();
   $(".container").slideDown();
-  var numberOfPlayers = newGame.players.length;
-  var activePlayerNumber = 0;
+  numberOfPlayers = newGame.players.length;
+
   showActivePlayer(activePlayerNumber);
 
   $("h4").click(function(){
@@ -125,7 +127,7 @@ function showActivePlayer(playerNumber){
   msg += "</select></p>"
   msg += "</div>";
   msg += "<div class='attack'>";
-  msg += "<button id='attack'>Attack</button>";
+  msg += "<button class='attack'>Attack</button>";
   msg += "<button class='end'>End Turn</button>";
   msg += "</div>";
 
@@ -174,7 +176,7 @@ function showActivePlayer(playerNumber){
     $("#dice").hide();
     showActivePlayer(activePlayerNumber);
   });
-  $("#attack").click(function(){
+  $("button.attack").click(function(){
     $("#battle").show();
   });
 }
