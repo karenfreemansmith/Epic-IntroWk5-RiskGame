@@ -6,9 +6,15 @@ A web-based game of risk by:
 #### Game Setup
 * Create board objects *(Karen- already in progress before we switched projects)*
   * continents defined
+    * input - start game
+    * output - array of 6 continents with continent name
   * territories defined
+    * input - continent name
+    * output - array of territories in that continent
   * adjacent territories defined
-* Allow 2-6 players *(J'ena?)*
+    * input - territory name
+    * output - array of adjacent territories
+* Allow 3-5 players *(J'ena?)*
   * input and store player names in player objects
   * create player "card" in user interface to show current player's stats
 * Assign (random) territories and troops to players *(Katy?)*
@@ -16,7 +22,7 @@ A web-based game of risk by:
   * assign each player troops according to territories held
 * Create game dice *(Aimen?)*
   * 3 - 6-sided black dice for attacks
-  * 2 - 6-sided red dive for defense
+  * 2 - 6-sided red dice for defense
 * Optional features:
   * cities
   * capitals

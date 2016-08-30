@@ -1,87 +1,9 @@
 // Backend Logic
-function Game() {
-  this.players=[];
-  this.dice=[];
-  this.cards=[];
-  this.objectives=[];
-  this.continents=[];
-  this.continents.push(new Continent("North America"));
-    this.continents[0].territories.push(new Territory("Greenland"));
-      this.continents[0].territories[0].adjacentTerritories.push
-      ("Iceland", "Northwest Territory", "Ontario", "Quebec");
-    this.continents[0].territories.push(new Territory("Northwest Territory"));
-      this.continents[0].territories[1].adjacentTerritories.push
-      ("Alaska", "Alberta", "Ontario", "Greenland");
-    this.continents[0].territories.push(new Territory("Alaska"));
-      this.continents[0].territories[2].adjacentTerritories.push
-      ("Kamchatka", "Northwest Territory", "Alberta");
-    this.continents[0].territories.push(new Territory("Alberta"));
-      this.continents[0].territories[3].adjacentTerritories.push
-      ("Alaska", "Northwest Territory", "Ontario", "Western United States");
-    this.continents[0].territories.push(new Territory("Ontario"));
-      this.continents[0].territories[4].adjacentTerritories.push
-      ("Greenland", "Northwest Territory", "Alberta", "Quebec", "Western United States", "Eastern United States");
-    this.continents[0].territories.push(new Territory("Quebec"));
-      this.continents[0].territories[5].adjacentTerritories.push
-      ("Greenland", "Ontario", "Eastern United States");
-    this.continents[0].territories.push(new Territory("Western United States"));
-      this.continents[0].territories[6].adjacentTerritories.push
-      ("Central America", "Eastern United States", "Ontario", "Alberta");
-    this.continents[0].territories.push(new Territory("Eastern United States"));
-      this.continents[0].territories[7].adjacentTerritories.push
-      ("Central America", "Western United States", "Ontario", "Quebec");
-    this.continents[0].territories.push(new Territory("Central America"));
-      this.continents[0].territories[8].adjacentTerritories.push
-      ("Western United States", "Eastern United States", "Venezuela");
-  this.continents.push(new Continent("South America"));
-    this.continents[1].territories.push(new Territory("Venezuela"));
-    this.continents[1].territories.push(new Territory("Brazil"));
-    this.continents[1].territories.push(new Territory("Peru"));
-    this.continents[1].territories.push(new Territory("Argentina"));
-  this.continents.push(new Continent("Europe"));
-    this.continents[2].territories.push(new Territory("Iceland"));
-    this.continents[2].territories.push(new Territory("Scandinavia"));
-    this.continents[2].territories.push(new Territory("Ukraine"));
-    this.continents[2].territories.push(new Territory("Northern Europe"));
-    this.continents[2].territories.push(new Territory("Southern Europe"));
-    this.continents[2].territories.push(new Territory("Western Europe"));
-    this.continents[2].territories.push(new Territory("Great Britan"));
-  this.continents.push(new Continent("Africa"));
-    this.continents[3].territories.push(new Territory("Egypt"));
-    this.continents[3].territories.push(new Territory("North Africa"));
-    this.continents[3].territories.push(new Territory("Congo"));
-    this.continents[3].territories.push(new Territory("South Africa"));
-    this.continents[3].territories.push(new Territory("East Africa"));
-    this.continents[3].territories.push(new Territory("Madagascar"));
-  this.continents.push(new Continent("Asia"));
-    this.continents[4].territories.push(new Territory("Afghanistan"));
-    this.continents[4].territories.push(new Territory("Ural"));
-    this.continents[4].territories.push(new Territory("Siberia"));
-    this.continents[4].territories.push(new Territory("Yakutsk"));
-    this.continents[4].territories.push(new Territory("Irkutsk"));
-    this.continents[4].territories.push(new Territory("Kamchatka"));
-    this.continents[4].territories.push(new Territory("Japan"));
-    this.continents[4].territories.push(new Territory("Mongolia"));
-    this.continents[4].territories.push(new Territory("China"));
-    this.continents[4].territories.push(new Territory("Siam"));
-    this.continents[4].territories.push(new Territory("India"));
-    this.continents[4].territories.push(new Territory("Middle East"));
-  this.continents.push(new Continent("Australia"));
-    this.continents[5].territories.push(new Territory("Indonesia"));
-    this.continents[5].territories.push(new Territory("New Guinea"));
-    this.continents[5].territories.push(new Territory("Western Australia"));
-    this.continents[5].territories.push(new Territory("Eastern Australia"));
-}
-function Objective() {
-  this.reward=new Reward("{description}");
-}
-function Reward(description) {
-  this.description=description;
-}
-function Die(sides, type) {
+// Dice JS
+function Die(sides, type, color, value) {
   this.sides = sides;
   this.type = type; //defense, attack, defense bonus, attack bonus
-  this.color = ""; //determined by type, attack=black, defense=red
+  this.color = color; //determined by type, attack=black, defense=red
   this.value = 1;
   this.roll();
 }
@@ -92,111 +14,220 @@ Die.prototype.roll=function(){
     this.value = Math.floor(Math.random()*(max - min+1)) + min;
 }
 
-function Card(name, image, stars) {
-  this.territory=territoryName;
-  this.territory=territoryImage;
-  this.stars=stars;
-  /*
-  ### 42 Card Deck:
-  #Alaska - 1
-  #Argentina - 1
-  #Scandinavia - 1
-  #India - 1
-  #Kamchatka - 1
-  #Mongolia - 1
-  #China - 1
-  #New Guinea - 1
-  #Alberta - 1
-  #Yakutska - 2
-  #Central Africa - 2
-  #Centarl America - 1
-  #Indonesia - 1
-  #Southeast Asia - 1
-  #Eastern Australia - 2
-  #North Africa - 1
-  #Egypt - 1
-  #Ontario - 2
-  #Western Australia - 1
-  #Brazil - 1
-  #East Africa - 2
-  #Madagascar - 1
-  #Greenland - 1
-  #Iceland - 1
-  #Northwest Territory - 2
-  #Ural - 2
-  #South Africa - 1
-  #Western Europe - 2
-  #Northern Europe - 1
-  #Irkutsk - 2
-  #Eastern Canada - 1
-  #Middle East - 1
-  #Western United States - 1
-  #Russia - 1
-  #Venezuela - 2
-  #Eastern United States - 1
-  #Afghanistan - 1
-  #Southern Europe - 1
-  #Peru - 1
-  #Siberia - 1
-  #Great Britain - 2
-  #Japan - 2
-  */
-}
+// Frontend Logic
+ var newGame = new Game();
+ var teamYellow = new Player("Yellow");
+ var teamGreen = new Player("Green");
+ var teamBlue = new Player("Blue");
+ var teamRed = new Player("Red");
+ var teamBlack = new Player ("Black");
+ newGame.addPlayer(teamYellow);
+ newGame.addPlayer(teamGreen);
+ newGame.addPlayer(teamBlue);
+ newGame.addPlayer(teamRed);
+ newGame.addPlayer(teamBlack);
 
-function Player() {
-  this.playerColor="";
-  this.objectives=[];
-  this.territories=[];
-}
+ newGame.assignTerritories();
 
-function Continent(continentName) {
-  this.continentName=continentName;
-  this.continentColor="";
-  this.territories=[];
-}
-Continent.prototype.findTerritory = function(territoryName) {
-  this.territories.forEach(function(territory, index) {
-    if(territory.territoryName===territoryName) {
-      // alert(index);
+var numberOfPlayers = newGame.players.length;
+var activePlayerNumber = 0;
+showActivePlayer(activePlayerNumber);
+
+$("h4").click(function(){
+  var playerName=$(this).text().substr(5);
+  if (playerName === "Yellow") {
+    var playerClass = "p1";
+  } else if(playerName === "Green") {
+    var playerClass = "p2";
+  }else if(playerName === "Blue") {
+    var playerClass = "p3";
+  }else if(playerName === "Red") {
+    var playerClass = "p4";
+  }else if(playerName === "Black") {
+    var playerClass = "p5";
+  }
+  var msg = "";
+  var troopDraft = 0;
+  msg = "<h2 class='"+playerClass+"'>"+$(this).text()+"</h2>";
+  msg += "<h3>Territories Owned:</h3>";
+  msg += "<ul>";
+  newGame.players.forEach(function(player){
+    if (player.name === playerName) {
+      troopDraft = Math.floor(player.territories.length/3);
+      player.territories.forEach(function(territory) {
+        msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
+        newGame.board.forEach(function(continent){
+          continent.territories.forEach(function(t) {
+            if(t.name===territory) {
+              msg+=t.troops;
+            }
+          });
+        });
+      });
     }
+    msg+="</li>";
+  });
+
+  msg += "</ul>";
+  $("#otherPlayer").html(msg);
+  $("#otherPlayer").show();
+});
+
+function showActivePlayer(playerNumber){
+
+  var playerName=newGame.players[playerNumber].name;
+  if (playerName === "Yellow") {
+    var playerClass = "p1";
+  } else if(playerName === "Green") {
+    var playerClass = "p2";
+  }else if(playerName === "Blue") {
+    var playerClass = "p3";
+  }else if(playerName === "Red") {
+    var playerClass = "p4";
+  }else if(playerName === "Black") {
+    var playerClass = "p5";
+  }
+  var msg = "";
+  var troopDraft = 0;
+  msg = "<h2 class='"+playerClass+"'>Team "+playerName+"</h2>";
+  msg += "<h3>Territories Owned:</h3>";
+  msg += "<ul>";
+  newGame.players.forEach(function(player){
+    if (player.name === playerName) {
+      troopDraft = Math.floor(player.territories.length/3);
+      player.territories.forEach(function(territory) {
+        msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
+        newGame.board.forEach(function(continent){
+          continent.territories.forEach(function(t) {
+            if(t.name===territory) {
+              msg+=t.troops;
+            }
+          });
+        });
+      });
+    }
+    msg+="</li>";
+  });
+  msg += "</ul>";
+  msg += "<div class='draft'>";
+  msg += "<p>Troop Draft: "+troopDraft+"</p>";
+  msg += "<p>Place Troops</p>";
+  msg += "</div>";
+  msg += "<div class='attack'>";
+  msg += "<button id='attack'>Attack</button>";
+  msg += "<button class='end'>End Turn</button>";
+  msg += "</div>";
+
+  $("#activePlayer").html(msg);
+  $("#activePlayer").show();
+
+  $("button.end").click(function() {
+    if (activePlayerNumber < numberOfPlayers-1) {
+      activePlayerNumber += 1;
+    } else {
+      activePlayerNumber = 0;
+    }
+    showActivePlayer(activePlayerNumber);
+  });
+  $("#attack").click(function(){
+    $("#battle").show();
   });
 }
 
-function Territory(territoryName) {
-  this.territoryName=territoryName;
-  this.adjacentTerritories=[];
-  this.city=false;
-  this.capital=false;
-  this.troups=0;
-}
 
-function Capital() {}
-function City() {}
-function Troup(color) {
-  this.playerColor=color;
-}
+$("#battle").click(function(){
+  var redOne =  new Die(6, "defense", "red");
+  var redTwo =  new Die(6, "defense", "red");
+  var blackOne =  new Die(6, "attack", "black");
+  var blackTwo =  new Die(6, "attack", "black");
+  var blackThree =  new Die(6, "attack", "black");
+  var redArray = [];
+  var blackArray = [];
+  function sortArray(){
+    redArray.sort(function(a, b){return b-a});
+    blackArray.sort(function(a, b){return b-a});
+  }
+  // troop/dice roll logic
+  var player1troops = 5; //Inputted numbers for testing
+  var player2troops = 3;  //Inputted numbers for testing
 
+  // for defend(red) dice
+    if (player2troops >= 2){
+    redOne.roll();
+    redTwo.roll();
+    redArray.push(redOne.value, redTwo.value);
+    sortArray();
+    $("#defendOne").text(redArray[0]);
+    $("#defendTwo").text(redArray[1]);
+    $("#defendOne").show();
+    $("#defendTwo").show();
+    }
+    else if (player2troops === 1) {
+    redOne.roll();
+    redArray.push(redOne.value);
+    $("#defendOne").text(redArray[0]);
+    $("#defendOne").show();
+    }
 
-// Frontend Logic
-var newGame = new Game();
-
-$("h4").click(function(){
-  var msg = "";
-  msg = "<h2>Active Player: Player One</h2>";
-  msg += "<h3>Objectives Achieved:</h3>";
-  msg += "<p id='rewards'>Major Rewards</p>";
-  msg += "<p>Minor Rewards</p>";
-  msg += "<ul>";
-  msg += "<li>Congo: 5</li>";
-  msg += "<li>Peru: 3</li>";
-  msg += "<li>Iceland: 7</li>";
-  msg += "<li>Quebec: 21</li>";
-  msg += "</ul>";
-  msg += "<p>Troop Draft</p>";
-  msg += "<p>Place Troops</p>";
-  msg += "<button>Attack</button>";
-  msg += "<button>End Attack Manuvers</button>";
-  msg += "<button>End Turn Manuvers</button>";
-  msg += "<p>Draw Card</p>";
-  $("#activePlayer").html(msg);
+  // for attack(black) dice
+    if (player1troops > 3){
+    blackOne.roll();
+    blackTwo.roll();
+    blackThree.roll();
+    blackArray.push(blackOne.value, blackTwo.value, blackThree.value);
+    sortArray();
+    $("#attackOne").text(blackArray[0]);
+    $("#attackTwo").text(blackArray[1]);
+    $("#attackThree").text(blackArray[2]);
+    $("#attackOne").show();
+    $("#attackTwo").show();
+    $("#attackThree").show();
+    }
+    else if (player1troops === 3) {
+    blackOne.roll();
+    blackTwo.roll();
+    blackArray.push(blackOne.value, blackTwo.value);
+    sortArray();
+    $("#attackOne").text(blackArray[0]);
+    $("#attackTwo").text(blackArray[1]);
+    $("#attackOne").show();
+    $("#attackTwo").show();
+    }
+    else if (player1troops === 2) {
+    blackOne.roll();
+    blackArray.push(blackOne.value);
+    $("#attackOne").text(blackArray[0]);
+    $("#attackOne").show();
+    }
+    else {
+    alert("You do not have enough troops here to battle.");
+  }
+  //determines which player won dice battle
+  if ((blackArray[0] > redArray[0]) && (blackArray[1] > redArray[1])) {
+    $("#winner").text("Attack wins both battles!");
+  }
+  else if ((blackArray[0] < redArray[0]) && (blackArray[1] < redArray[1])) {
+    $("#winner").text("Defense wins both battles");
+  }
+  else if ((blackArray[0] > redArray[0]) && (blackArray[1] < redArray[1])) {
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] < redArray[0]) && (blackArray[1] > redArray[1])){
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] === redArray[0]) && (blackArray[1] === redArray[1])){
+    $("#winner").text("Defense wins both battles");
+  }
+  else if ((blackArray[0] === redArray[0]) && (blackArray[1] > redArray[1])){
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] === redArray[0]) && (blackArray[1] < redArray[1])){
+    $("#winner").text("Defense wins both");
+  }
+  else if ((blackArray[0] > redArray[0]) && (blackArray[1] === redArray[1])){
+    $("#winner").text("Each player wins one battle");
+  }
+  else if ((blackArray[0] < redArray[0]) && (blackArray[1] === redArray[1])){
+    $("#winner").text("Defense wins both battles");
+  }
 });
