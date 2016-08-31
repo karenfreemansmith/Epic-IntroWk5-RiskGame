@@ -22,53 +22,37 @@ var newGame = new Game();
 $("form").submit(function(event){
   var playersArray = []; //this is the array of colors players choose before game play
   event.preventDefault();
-
   $.each($("input:checked"), function (){
     playersArray.push($(this).val());
   });
 
-  playersArray.forEach(function(teamColor){
-     if(teamColor === "Yellow"){
+    for (i=0; i<playersArray.length; i++) {
+     if(playersArray[i] === "Yellow"){
        var teamYellow = new Player("Yellow");
        newGame.addPlayer(teamYellow);
        $(".p1").show();
       }
-      //else {
-    //    $(".p1").hide();
-    //  }
-     if (teamColor === "Green"){
+     if (playersArray[i] === "Green"){
        var teamGreen = new Player("Green");
        newGame.addPlayer(teamGreen);
        $(".p2").show();
       }
-    // else {
-    //    $(".p2").hide();
-    //  }
-     if (teamColor === "Blue"){
+     if (playersArray[i]=== "Blue"){
        var teamBlue = new Player("Blue");
        newGame.addPlayer(teamBlue);
        $(".p3").show();
       }
-    //else {
-    //    $(".p3").hide();
-    //  }
-     if (teamColor === "Red"){
+     if (playersArray[i] === "Red"){
        var teamRed = new Player("Red");
        newGame.addPlayer(teamRed);
        $(".p4").show();
       }
-    //else {
-    //    $(".p4").hide();
-    //  }
-     if (teamColor === "Black"){
+     if (playersArray[i] === "Black"){
        var teamBlack = new Player("Black");
        newGame.addPlayer(teamBlack);
        $(".p5").show();
     }
-    // else {
-    //    $(".p5").hide();
-    //  }
-   });
+   };
 
   newGame.assignTerritories();
   $(".intro").slideUp();
