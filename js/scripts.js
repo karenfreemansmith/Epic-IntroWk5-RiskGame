@@ -16,6 +16,10 @@ Die.prototype.roll=function(){
 
 // Frontend Logic
 var newGame = new Game();
+// if(newGame.gameOver()) {
+//   alert("grave over");
+// }
+
 // var activePlayerNumber = 0;
 // var numberOfPlayers = 0;
 
@@ -137,18 +141,28 @@ function showActivePlayer(playerNumber){
               msg+="</span></li>";
               $("#activePlayerTerritories").append(msg);
               $(".territory").last().click(function() {
-                $("#placeTroopsTerritory").text(t.name);
-                $(".numberOfTroopsPlaced").empty();
-                for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
-                  $(".numberOfTroopsPlaced").append("<option>"+i+"</option>");
-                }
-              });
-            }
-          });
-        });
-      });
-    }
-  });
+                newGame.attacking=t;
+                newGame.attacking.adjacentTerritories.forEach(function(at){
+                  $("#adjacent").append("<li class='defenders'>" + at + "</li>");
+                  $(".defenders").last().click(function() {
+                    newGame.defending=newGame.findTerritory(at);
+                    $("#defendingTerritory").text(at);
+                  });
+                  $("#placeTroopsTerritory").text(t.name);
+                  $("#attackingTerritory").text(t.name);
+                  $("#attackingTerritory").addClass(playerClass);
+                  $("#numberOfTroopsPlaced").empty();
+                  for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
+                    $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
+                  }
+                });
+              }); // end of .territory last
+            } // end of if t name
+          }); //end of  continent territories for Each
+        }); // end of newGame .board territory
+      }); //end of for each territory
+    } // end of if player name
+  }); //end of newGame players
 
   $("#activePlayer").show();
   $("#numberOfTroopsPlaced").change(function(){
@@ -163,9 +177,15 @@ $("button.endTurn").click(function() {
   } else {
     newGame.activePlayerIndex = 0;
   }
-  $("#battle").hide();
-  $("#dice").hide();
+  // $("#battle").hide();
+  // $("#dice").hide();
   showActivePlayer(newGame.activePlayerIndex);
+  if (newGame.players.length === 1) { // THIS IS WHERE WINNER OF GAME IS DECLARED, permenant trigger button tbd
+    $(".game-body").hide();
+    $("#finale").show();
+    $("#theWinner").text(newGame.players[0].name + " team wins!");
+  }
+
 });
 $("button.attack").click(function(){
   $("#battle").show();

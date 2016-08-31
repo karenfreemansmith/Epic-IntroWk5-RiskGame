@@ -3,6 +3,8 @@ function Game() {
   this.activePlayerIndex=0;
   this.numberOfPlayers=0;
   this.troopDraft=0;
+  this.attacking={};
+  this.defending={};
   var northAmerica = new Continent(5);
   var southAmerica = new Continent(2);
   var africa = new Continent(3);
@@ -161,6 +163,12 @@ Game.prototype.assignTerritories = function() {
   }
 }
 
+// Game.prototype.gameOver = function(player) {
+//   if (newGame.players.length = 1) {
+//     alert("you dead");
+//   }
+// }
+
 Game.prototype.addPlayer = function(player) {
   this.players.push(player);
 }
@@ -170,6 +178,18 @@ Game.prototype.removePlayer = function(player) {
     if(newGame.players[i].name === player)
     newGame.players.splice(i,1);
     })
+}
+
+Game.prototype.findTerritory = function(territoryName) {
+  var t={};
+  this.board.forEach(function(continent) {
+    continent.territories.forEach(function(territory) {
+      if(territory.name===territoryName) {
+        t=territory;
+      }
+    });
+  });
+  return t;
 }
 
 // function Game() {

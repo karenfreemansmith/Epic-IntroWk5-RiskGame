@@ -53,7 +53,7 @@ li.p5:hover {
   background-color: darkred;
 }
 
-#activePlayer, #otherPlayer {
+ #activePlayer, #otherPlayer {
   display: none;
   font-family: 'Baloo Paaji', cursive;
   background-color: rgba(255, 255, 255, 0.7);
@@ -144,6 +144,16 @@ li.p5:hover {
   margin-left: 35%;
 }
 
+#finale {
+  display: none;
+  background-color: black;
+}
+
+#finale img {
+  display: inline-block;
+  margin: auto;
+}
+
 .container {
   display: none;
 }
@@ -163,6 +173,17 @@ li.p5:hover {
   margin-right: auto;
   padding-left: 15px;
 }
+
+.box {
+  margin-top:10px;
+  padding: 10px;
+  font-family: 'Baloo Paaji', cursive;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px grey;
+  box-sizing: border-box;
+}
+
 
 .red {
   width: 70px;
@@ -223,4 +244,9 @@ li.p5:hover {
 
 .p5 {
   color: black;
+}
+
+.jumbotron {
+  background-color: black;
+  color: white;
 }
