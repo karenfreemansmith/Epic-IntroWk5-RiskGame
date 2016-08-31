@@ -4,6 +4,8 @@ __Version 1.0.0: August 31, 2016__
 A web-based game of risk by:
 ###[Aimen Khakwani](https://github.com/aimenkhakwani), [J'ena SanCartier](https://github.com/jenasancartier), [Karen Freeman-Smith](https://github.com/karenfreemansmith), and [Katy Henning](https://github.com/KatyCodes)
 
+![project screenshot](/img/screenshot.jpg)
+
 ### Specifications:
 #### Game Setup
 * Create board objects
