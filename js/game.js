@@ -163,8 +163,21 @@ Game.prototype.assignTerritories = function() {
   }
 }
 
+// Game.prototype.gameOver = function(player) {
+//   if (newGame.players.length = 1) {
+//     alert("you dead");
+//   }
+// }
+
 Game.prototype.addPlayer = function(player) {
   this.players.push(player);
+}
+
+Game.prototype.removePlayer = function(player) {
+  $.each(newGame.players, function(i){
+    if(newGame.players[i].name === player)
+    newGame.players.splice(i,1);
+    })
 }
 
 Game.prototype.findTerritory = function(territoryName) {
@@ -178,6 +191,7 @@ Game.prototype.findTerritory = function(territoryName) {
   });
   return t;
 }
+
 // function Game() {
 //   this.players=[];
 //   this.dice=[];

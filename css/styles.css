@@ -144,6 +144,16 @@ li.p5:hover {
   margin-left: 35%;
 }
 
+#finale {
+  display: none;
+  background-color: black;
+}
+
+#finale img {
+  display: inline-block;
+  margin: auto;
+}
+
 .container {
   display: none;
 }
@@ -234,4 +244,9 @@ li.p5:hover {
 
 .p5 {
   color: black;
+}
+
+.jumbotron {
+  background-color: black;
+  color: white;
 }

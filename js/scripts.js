@@ -16,6 +16,10 @@ Die.prototype.roll=function(){
 
 // Frontend Logic
 var newGame = new Game();
+// if(newGame.gameOver()) {
+//   alert("grave over");
+// }
+
 // var activePlayerNumber = 0;
 // var numberOfPlayers = 0;
 
@@ -180,6 +184,12 @@ $("button.endTurn").click(function() {
   // $("#battle").hide();
   // $("#dice").hide();
   showActivePlayer(newGame.activePlayerIndex);
+  if (newGame.players.length === 1) { // THIS IS WHERE WINNER OF GAME IS DECLARED, permenant trigger button tbd
+    $(".game-body").hide();
+    $("#finale").show();
+    $("#theWinner").text(newGame.players[0].name + " team wins!");
+  }
+
 });
 $("button.attack").click(function(){
   $("#battle").show();

@@ -9,96 +9,107 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <h1>Risk</h1>
-    <div class="intro">
-      <!-- <h1>Risk</h1> -->
-      <div class="col-sm-4" id="teams-intro">
-        <h3>Select Your Teams:</h3>
-        <form>
-          <label class="form-check-label p1">
-              <input class="form-check-input" type="checkbox" value="Yellow">
-              Team Yellow
-          </label></br>
-          <label class="form-check-label p2">
-              <input class="form-check-input" type="checkbox" value="Green">
-              Team Green
-          </label></br>
-          <label class="form-check-label p3">
-              <input class="form-check-input" type="checkbox" value="Blue">
-              Team Blue
-          </label></br>
-          <label class="form-check-label p4">
-              <input class="form-check-input" type="checkbox" value="Red">
-              Team Red
-          </label></br>
-          <label class="form-check-label p5">
-              <input class="form-check-input" type="checkbox" value="Black">
-              Team Black
-          </label>
-          <button id="letsPlay" type="submit" class="btn btn-classic">Let's Play!</button>
-        </form>
+    <div class="game-body">
+      <h1>Risk</h1>
+      <div class="intro">
+        <!-- <h1>Risk</h1> -->
+        <div class="col-sm-4" id="teams-intro">
+          <h3>Select Your Teams:</h3>
+          <form>
+            <label class="form-check-label p1">
+                <input class="form-check-input" type="checkbox" value="Yellow">
+                Team Yellow
+            </label></br>
+            <label class="form-check-label p2">
+                <input class="form-check-input" type="checkbox" value="Green">
+                Team Green
+            </label></br>
+            <label class="form-check-label p3">
+                <input class="form-check-input" type="checkbox" value="Blue">
+                Team Blue
+            </label></br>
+            <label class="form-check-label p4">
+                <input class="form-check-input" type="checkbox" value="Red">
+                Team Red
+            </label></br>
+            <label class="form-check-label p5">
+                <input class="form-check-input" type="checkbox" value="Black">
+                Team Black
+            </label>
+            <button id="letsPlay" type="submit" class="btn btn-classic">Let's Play!</button>
+          </form>
+        </div>
+      </div>
+      <div class="container">
+        <!-- <h1>Risk</h1> -->
+        <div class="row">
+          <div class="col-sm-4">
+            <div id="activePlayer">
+              <h2>Team <span id="teamName"></span></h2>
+              <h3>Territories Owned:</h3>
+              <ul id="activePlayerTerritories"></ul>
+              <div class="draft">
+                <p>
+                  Troop Draft:
+                  <span id="troopsDrafted"></span></p>
+                <p>
+                  Place Troops in<br>
+                  <span id="placeTroopsTerritory"></span>
+                  <select id="numberOfTroopsPlaced"></select>
+                </p>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-sm-4" id="teams">
+            <h4 class="p1">Team Yellow</h4>
+            <h4 class="p2">Team Green</h4>
+            <h4 class="p3">Team Blue</h4>
+            <h4 class="p4">Team Red</h4>
+            <h4 class="p5">Team Black</h4>
+            <div class="attack">
+              <button class="attack">Attack</button>
+              <button class="endTurn">End Turn</button>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div id="otherPlayer">
+            </div>
+          </div>
+        </div>
+        <!-- dice divs start -->
+        <div class="col-sm-4 box">Attacking from:
+          <h3 id="attackingTerritory"></h3>
+          <ul id="adjacent"></ul>
+        </div>
+        <div id="dice" class="col-sm-4">
+          <div class="row">
+            <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
+          </div>
+          <div class="row attackDice">
+            <div class="black" id="attackOne"></div>
+            <div class="black" id="attackTwo"></div>
+            <div class="black" id="attackThree"></div>
+          </div>
+          <div class="row defenseDice">
+            <div class="red" id="defendOne"></div>
+            <div class="red" id="defendTwo"></div>
+          </div>
+          <h2 id="winner"></h2>
+        </div>
+        <div class="col-sm-4 box">Defending from: <h3 id="defendingTerritory"></h3></div>
+        <!-- dice divs end -->
       </div>
     </div>
-    <div class="container">
-      <!-- <h1>Risk</h1> -->
-      <div class="row">
-        <div class="col-sm-4">
-          <div id="activePlayer">
-            <h2>Team <span id="teamName"></span></h2>
-            <h3>Territories Owned:</h3>
-            <ul id="activePlayerTerritories"></ul>
-            <div class="draft">
-              <p>
-                Troop Draft:
-                <span id="troopsDrafted"></span></p>
-              <p>
-                Place Troops in<br>
-                <span id="placeTroopsTerritory"></span>
-                <select id="numberOfTroopsPlaced"></select>
-              </p>
-            </div>
-
-
-          </div>
-        </div>
-        <div class="col-sm-4" id="teams">
-          <h4 class="p1">Team Yellow</h4>
-          <h4 class="p2">Team Green</h4>
-          <h4 class="p3">Team Blue</h4>
-          <h4 class="p4">Team Red</h4>
-          <h4 class="p5">Team Black</h4>
-          <div class="attack">
-            <button class="attack">Attack</button>
-            <button class="endTurn">End Turn</button>
-          </div>
-        </div>
-        <div class="col-sm-4">
-          <div id="otherPlayer">
-          </div>
-        </div>
+    <div id="finale">
+      <div class="jumbotron">
+        <h1><span id="theWinner"></span></h1>
+        <br>
+        <img src="img/fireworks2.gif"><img src="img/fireworks4.gif"><img src="img/fireworks3.gif"><img src="img/fireworks6.gif">
+        <img src="img/fireworks1.gif"><img src="img/fireworks9.gif"><img src="img/fireworks8.gif"><img src="img/fireworks7.gif"><img src="img/fireworks6.gif">
+        <img src="img/fireworks5.gif"><img src="img/fireworks1.gif">
       </div>
-      <!-- dice divs start -->
-      <div class="col-sm-4 box">Attacking from:
-        <h3 id="attackingTerritory"></h3>
-        <ul id="adjacent"></ul>
-      </div>
-      <div id="dice" class="col-sm-4">
-        <div class="row">
-          <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
-        </div>
-        <div class="row attackDice">
-          <div class="black" id="attackOne"></div>
-          <div class="black" id="attackTwo"></div>
-          <div class="black" id="attackThree"></div>
-        </div>
-        <div class="row defenseDice">
-          <div class="red" id="defendOne"></div>
-          <div class="red" id="defendTwo"></div>
-        </div>
-        <h2 id="winner"></h2>
-      </div>
-      <div class="col-sm-4 box">Defending from: <h3 id="defendingTerritory"></h3></div>
-      <!-- dice divs end -->
     </div>
     <script src="js/jquery-3.1.0.js"></script>
     <script src="js/player.js"></script>
