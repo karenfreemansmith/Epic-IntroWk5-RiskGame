@@ -138,14 +138,16 @@ function showActivePlayer(playerNumber){
               $("#activePlayerTerritories").append(msg);
               $(".territory").last().click(function() {
                 newGame.attacking=t;
+                $("#adjacent").empty();
                 newGame.attacking.adjacentTerritories.forEach(function(at){
+
                   $("#adjacent").append("<li class='defenders'>" + at + "</li>");
                   $(".defenders").last().click(function() {
                     newGame.defending=newGame.findTerritory(at);
-                    $("#defendingTerritory").text(at);
+                    $("#defendingTerritory").text(newGame.defending.name + " (" + newGame.defending.troops + ")");
                   });
                   $("#placeTroopsTerritory").text(t.name);
-                  $("#attackingTerritory").text(t.name);
+                  $("#attackingTerritory").text(t.name + " ("+t.troops+")");
                   $("#attackingTerritory").addClass(playerClass);
                   $("#numberOfTroopsPlaced").empty();
                   for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
@@ -194,8 +196,8 @@ $("#battle").click(function(){
     blackArray.sort(function(a, b){return b-a});
   }
   // troop/dice roll logic
-  var player1troops = 5; //Inputted numbers for testing
-  var player2troops = 3;  //Inputted numbers for testing
+  var player1troops = newGame.attacking.troops;
+  var player2troops = newGame.defending.troops;
 
   // for defend(red) dice
     if (player2troops >= 2){
@@ -275,5 +277,15 @@ $("#battle").click(function(){
   }
   else if ((blackArray[0] < redArray[0]) && (blackArray[1] === redArray[1])){
     $("#winner").text("Defense wins both battles");
+  }
+
+  if (blackArray[0] < redArray[0]) {
+    $("#winner").text("Defense wins this battle");
+  }
+  if (blackArray[0] > redArray[0]) {
+    $("#winner").text("Attack wins this battle");
+  }
+  if (blackArray[0] === redArray[0]) {
+    $("#winner").text("Defense wins this battle");
   }
 });
