@@ -167,6 +167,17 @@ Game.prototype.addPlayer = function(player) {
   this.players.push(player);
 }
 
+Game.prototype.findTerritory = function(territoryName) {
+  var t={};
+  this.board.forEach(function(continent) {
+    continent.territories.forEach(function(territory) {
+      if(territory.name===territoryName) {
+        t=territory;
+      }
+    });
+  });
+  return t;
+}
 // function Game() {
 //   this.players=[];
 //   this.dice=[];

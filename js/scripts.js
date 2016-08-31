@@ -139,25 +139,26 @@ function showActivePlayer(playerNumber){
               $(".territory").last().click(function() {
                 newGame.attacking=t;
                 newGame.attacking.adjacentTerritories.forEach(function(at){
-                  alert(at);
                   $("#adjacent").append("<li class='defenders'>" + at + "</li>");
                   $(".defenders").last().click(function() {
+                    newGame.defending=newGame.findTerritory(at);
                     $("#defendingTerritory").text(at);
                   });
-                $("#placeTroopsTerritory").text(t.name);
-                $("#attackingTerritory").text(t.name);
-                $("#attackingTerritory").addClass(playerClass);
-                $("#numberOfTroopsPlaced").empty();
-                for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
-                  $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
-                }
-              });
-            }
-          });
-        });
-      });
-    }
-  });
+                  $("#placeTroopsTerritory").text(t.name);
+                  $("#attackingTerritory").text(t.name);
+                  $("#attackingTerritory").addClass(playerClass);
+                  $("#numberOfTroopsPlaced").empty();
+                  for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
+                    $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
+                  }
+                });
+              }); // end of .territory last
+            } // end of if t name
+          }); //end of  continent territories for Each
+        }); // end of newGame .board territory
+      }); //end of for each territory
+    } // end of if player name
+  }); //end of newGame players
 
   $("#activePlayer").show();
   $("#numberOfTroopsPlaced").change(function(){

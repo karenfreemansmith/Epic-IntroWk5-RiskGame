@@ -19,13 +19,7 @@ Continent.prototype.isOwned = function() {
 //   this.continentColor="";
 //   this.territories=[];
 // }
-Continent.prototype.findTerritory = function(territoryName) {
-  this.territories.forEach(function(territory) {
-    if(territory.territoryName===territoryName) {
-      console.log(territory.troops);
-    }
-  });
-}
+
 // Continent.prototype.isOwned = function() {
 //   // check to see if all territories have same owner
 //   // if same return player designation
