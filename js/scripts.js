@@ -140,7 +140,6 @@ function showActivePlayer(playerNumber){
                 newGame.attacking=t;
                 $("#adjacent").empty();
                 newGame.attacking.adjacentTerritories.forEach(function(at){
-
                   $("#adjacent").append("<li class='defenders'>" + at + "</li>");
                   $(".defenders").last().click(function() {
                     newGame.defending=newGame.findTerritory(at);
@@ -164,8 +163,11 @@ function showActivePlayer(playerNumber){
 
   $("#activePlayer").show();
   $("#numberOfTroopsPlaced").change(function(){
-    alert($("#numberOfTroopsPlaced").val());
-    alert(newGame.troopDraft);
+    var troops2move=parseInt($("#numberOfTroopsPlaced").val())-newGame.attacking.troops;
+    newGame.troopDraft-=troops2move;
+    $("#troopsDrafted").text(newGame.troopDraft);
+    newGame.attacking.troops+=troops2move;
+    $("#attackingTerritory").text(newGame.attacking.name + " ("+newGame.attacking.troops+")");
   });
 
 }
@@ -253,39 +255,56 @@ $("#battle").click(function(){
   //determines which player won dice battle
   if ((blackArray[0] > redArray[0]) && (blackArray[1] > redArray[1])) {
     $("#winner").text("Attack wins both battles!");
+    newGame.defending.troops -= 2;
   }
   else if ((blackArray[0] < redArray[0]) && (blackArray[1] < redArray[1])) {
     $("#winner").text("Defense wins both battles");
+    newGame.attacking.troops -= 2;
   }
   else if ((blackArray[0] > redArray[0]) && (blackArray[1] < redArray[1])) {
     $("#winner").text("Each player wins one battle");
   }
   else if ((blackArray[0] < redArray[0]) && (blackArray[1] > redArray[1])){
     $("#winner").text("Each player wins one battle");
+    newGame.attacking.troops -= 1;
+    newGame.defending.troops -= 1;
   }
   else if ((blackArray[0] === redArray[0]) && (blackArray[1] === redArray[1])){
     $("#winner").text("Defense wins both battles");
+    newGame.attacking.troops -= 2;
   }
   else if ((blackArray[0] === redArray[0]) && (blackArray[1] > redArray[1])){
     $("#winner").text("Each player wins one battle");
+    newGame.attacking.troops -= 1;
+    newGame.defending.troops -= 1;
   }
   else if ((blackArray[0] === redArray[0]) && (blackArray[1] < redArray[1])){
-    $("#winner").text("Defense wins both");
+    $("#winner").text("Defense wins both battles");
+    newGame.attacking.troops -= 2;
   }
   else if ((blackArray[0] > redArray[0]) && (blackArray[1] === redArray[1])){
     $("#winner").text("Each player wins one battle");
+    newGame.attacking.troops -= 1;
+    newGame.defending.troops -= 1;
   }
   else if ((blackArray[0] < redArray[0]) && (blackArray[1] === redArray[1])){
     $("#winner").text("Defense wins both battles");
+    newGame.attacking.troops -= 2;
   }
 
   if (blackArray[0] < redArray[0]) {
     $("#winner").text("Defense wins this battle");
+    newGame.attacking.troops -= 1;
   }
   if (blackArray[0] > redArray[0]) {
     $("#winner").text("Attack wins this battle");
+    newGame.defending.troops -= 1;
   }
   if (blackArray[0] === redArray[0]) {
     $("#winner").text("Defense wins this battle");
+    newGame.attacking.troops -= 1;
+  }
+  if (newGame.defending.troops <= 0) {
+    newGame.defending.owner = newGame.attacking.owner;                  
   }
 });
