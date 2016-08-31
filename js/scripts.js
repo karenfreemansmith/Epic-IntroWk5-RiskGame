@@ -153,7 +153,16 @@ function showActivePlayer(playerNumber){
               msg+="</span></li>";
               $("#activePlayerTerritories").append(msg);
               $(".territory").last().click(function() {
+                newGame.attacking=t;
+                newGame.attacking.adjacentTerritories.forEach(function(at){
+                  alert(at);
+                  $("#adjacent").append("<li class='defenders'>" + at + "</li>");
+                  $(".defenders").last().click(function() {
+                    $("#defendingTerritory").text(at);
+                  });
                 $("#placeTroopsTerritory").text(t.name);
+                $("#attackingTerritory").text(t.name);
+                $("#attackingTerritory").addClass(playerClass);
                 $("#numberOfTroopsPlaced").empty();
                 for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
                   $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
@@ -179,8 +188,8 @@ $("button.endTurn").click(function() {
   } else {
     newGame.activePlayerIndex = 0;
   }
-  $("#battle").hide();
-  $("#dice").hide();
+  // $("#battle").hide();
+  // $("#dice").hide();
   showActivePlayer(newGame.activePlayerIndex);
 });
 $("button.attack").click(function(){
