@@ -24,27 +24,32 @@ h4 {
   font-size: 30px;
 }
 
-li.p1:hover {
+li.defenders:hover {
   text-shadow: 3px 3px 10px #bfbfbf;
   cursor: pointer;
 }
 
-li.p2:hover {
+#activePlayer li.p1:hover {
   text-shadow: 3px 3px 10px #bfbfbf;
   cursor: pointer;
 }
 
-li.p3:hover {
+#activePlayer li.p2:hover {
   text-shadow: 3px 3px 10px #bfbfbf;
   cursor: pointer;
 }
 
-li.p4:hover {
+#activePlayer li.p3:hover {
   text-shadow: 3px 3px 10px #bfbfbf;
   cursor: pointer;
 }
 
-li.p5:hover {
+#activePlayer li.p4:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
+#activePlayer li.p5:hover {
   text-shadow: 3px 3px 10px #bfbfbf;
   cursor: pointer;
 }
@@ -148,14 +153,18 @@ li.p5:hover {
   margin-left: 35%;
 }
 
+#letsPlay:hover {
+  background-color: white;
+  color: black;
+}
+
 #finale {
   display: none;
   background-color: black;
 }
 
 #finale img {
-  display: inline-block;
-  margin: auto;
+  margin-left: 100px;
 }
 
 .container {
@@ -230,11 +239,6 @@ li.p5:hover {
   float: left;
 }
 
-.attack {
-  /*display: none;*/
-}
-
-
 .p1 {
   color: goldenrod;
 }
@@ -258,4 +262,10 @@ li.p5:hover {
 .jumbotron {
   background-color: black;
   color: white;
+}
+
+@media (max-width: 2108px){
+  .break {
+    display: none;
+  }
 }

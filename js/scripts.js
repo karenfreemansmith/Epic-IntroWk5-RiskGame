@@ -186,8 +186,11 @@ $("button.endTurn").click(function() {
   showActivePlayer(newGame.activePlayerIndex);
   if (newGame.players.length === 1) { // THIS IS WHERE WINNER OF GAME IS DECLARED, permenant trigger button tbd
     $(".game-body").hide();
+    $("body").css("background-image", "none");
+    $("body").css("background-color", "black");
     $("#finale").show();
     $("#theWinner").text(newGame.players[0].name + " team wins!");
+
   }
 
 });
