@@ -165,6 +165,13 @@ Game.prototype.addPlayer = function(player) {
   this.players.push(player);
 }
 
+Game.prototype.removePlayer = function(player) {
+  $.each(newGame.players, function(i){
+    if(newGame.players[i].name === player)
+    newGame.players.splice(i,1);
+    })
+}
+
 // function Game() {
 //   this.players=[];
 //   this.dice=[];

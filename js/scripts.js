@@ -138,9 +138,9 @@ function showActivePlayer(playerNumber){
               $("#activePlayerTerritories").append(msg);
               $(".territory").last().click(function() {
                 $("#placeTroopsTerritory").text(t.name);
-                $("#numberOfTroopsPlaced").empty();
+                $(".numberOfTroopsPlaced").empty();
                 for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
-                  $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
+                  $(".numberOfTroopsPlaced").append("<option>"+i+"</option>");
                 }
               });
             }
