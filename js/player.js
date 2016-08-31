@@ -10,10 +10,16 @@ Player.prototype.draftTroops = function() {
       troops+=continent.bonusTroops;
     }
   });
-
   return Math.floor(this.territories.length/3);
 }
 
+Player.prototype.removeTerritory = function(territoryName) {
+  for(var i=0;i<this.territories.length;i++){
+    if(this.territories[i] === territoryName){
+      this.territories.splice(i,1);
+    }
+  }
+}
 // function Player() {
 //   this.playerColor="";
 //   this.objectives=[];

@@ -12,17 +12,53 @@ h1 {
   font-family: 'Kumar One', cursive;
   font-size: 100px;
   text-align: center;
+  line-height: 1.5;
+}
+
+h3 {
+  text-align: center;
+  font-size: 30px;
 }
 
 h4 {
   font-size: 30px;
 }
 
+li.defenders:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
+#activePlayer li.p1:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
+#activePlayer li.p2:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
+#activePlayer li.p3:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
+#activePlayer li.p4:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
+#activePlayer li.p5:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+}
+
 #dice button {
   background-color: darkred;
 }
 
-#activePlayer, #otherPlayer {
+ #activePlayer, #otherPlayer {
   display: none;
   font-family: 'Baloo Paaji', cursive;
   background-color: rgba(255, 255, 255, 0.7);
@@ -32,29 +68,13 @@ h4 {
   box-shadow: 3px 3px 10px grey;
   box-sizing: border-box;
 }
+#otherPlayer li:hover {
+  text-shadow: none;
+  cursor: none;
+}
 
 #activePlayer p, #otherPlayer p {
   font-size: 20px;
-}
-
-.p1 {
-  color: goldenrod;
-}
-
-.p2 {
-  color: darkgreen;
-}
-
-.p3 {
-  color: darkblue;
-}
-
-.p4 {
-  color: darkred;
-}
-
-.p5 {
-  color: black;
 }
 
 #dice {
@@ -69,6 +89,11 @@ h4 {
   display: none;
   box-sizing: border-box;
 }
+
+#winner {
+  font-size: 25px;
+}
+
 #battle:active,
 #battle:focus,
 #battle.active {
@@ -85,18 +110,103 @@ h4 {
   border-radius: 15px;
   padding: 15px;
   box-shadow: 3px 3px 10px grey;
-  /*max-width: 200px;
-  min-width: 200px;*/
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#teams .p1 {
+  display: none;
+}
+
+#teams .p2 {
+  display: none;
+}
+
+#teams .p3 {
+  display: none;
+}
+
+#teams .p4 {
+  display: none;
+}
+
+#teams .p5 {
+  display: none;
+}
+
+#teams-intro {
+  font-family: 'Baloo Paaji', cursive;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px grey;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+#teams h4:hover {
+  text-shadow: 2px 2px 5px grey;
+}
+
+#letsPlay {
+  margin-left: 35%;
+}
+
+#letsPlay:hover {
+  background-color: white;
+  color: black;
+}
+
+#finale {
+  display: none;
+  background-color: black;
+}
+
+#finale img {
+  margin-left: 100px;
+}
+
+.container {
+  display: none;
+}
+
+ .intro #teams-intro{
+  margin-left: 42%;
+  text-align: left;
+  max-width: 300px;
+}
+
+.intro label {
+  font-family: 'Baloo Paaji', cursive;
+  cursor: pointer;
+  font-size: 30px;
+  padding: 5px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 15px;
+}
+
+.box {
+  margin-top:10px;
+  padding: 10px;
+  font-family: 'Baloo Paaji', cursive;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  box-shadow: 3px 3px 10px grey;
   box-sizing: border-box;
 }
-#winner {
-  font-size: 25px;
+
+.box li:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+
 }
+
 .red {
   width: 70px;
   height: 70px;
   background-color: #b30000;
-  /*background-color: #993300;*/
   margin-right: 20px;
   margin-top: 20px;
   border-radius: 10px;
@@ -129,6 +239,33 @@ h4 {
   float: left;
 }
 
-.attack {
-  /*display: none;*/
+.p1 {
+  color: goldenrod;
+}
+
+.p2 {
+  color: darkgreen;
+}
+
+.p3 {
+  color: darkblue;
+}
+
+.p4 {
+  color: darkred;
+}
+
+.p5 {
+  color: black;
+}
+
+.jumbotron {
+  background-color: black;
+  color: white;
+}
+
+@media (max-width: 2108px){
+  .break {
+    display: none;
+  }
 }

@@ -1,5 +1,10 @@
 function Game() {
   this.players=[];
+  this.activePlayerIndex=0;
+  this.numberOfPlayers=0;
+  this.troopDraft=0;
+  this.attacking={};
+  this.defending={};
   var northAmerica = new Continent(5);
   var southAmerica = new Continent(2);
   var africa = new Continent(3);
@@ -158,9 +163,53 @@ Game.prototype.assignTerritories = function() {
   }
 }
 
+// Game.prototype.gameOver = function(player) {
+//   if (newGame.players.length = 1) {
+//     alert("you dead");
+//   }
+// }
+
 Game.prototype.addPlayer = function(player) {
   this.players.push(player);
 }
+
+Game.prototype.removePlayer = function(player) {
+  $.each(this.players, function(i){
+    if(this.players[i].name === player) {
+      this.players.splice(i,1);
+    }
+  });
+}
+
+Game.prototype.loseBattle = function(winner, loser, territory) {
+  this.players.forEach(function(player){
+    if(player.name === winner){
+      player.territories.push(territory.name);
+    }
+  });
+
+  this.players.forEach(function(player){
+    if(player.name === loser) {
+      console.log(territory);
+      player.removeTerritory(territory.name);
+
+    }
+  });
+}
+
+Game.prototype.findTerritory = function(territoryName) {
+  var t={};
+  this.board.forEach(function(continent) {
+    continent.territories.forEach(function(territory) {
+      if(territory.name===territoryName) {
+        t=territory;
+      }
+    });
+  });
+  return t;
+}
+
+
 
 // function Game() {
 //   this.players=[];

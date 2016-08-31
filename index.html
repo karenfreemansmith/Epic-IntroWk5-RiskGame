@@ -9,12 +9,57 @@
     <link href="css/styles.css" rel="stylesheet">
   </head>
   <body>
-    <div class="transparent">
+    <div class="game-body">
+      <h1>Risk</h1>
+      <div class="intro">
+        <!-- <h1>Risk</h1> -->
+        <div class="col-sm-4" id="teams-intro">
+          <h3>Select Your Teams:</h3>
+          <form>
+            <label class="form-check-label p1">
+                <input class="form-check-input" type="checkbox" value="Yellow">
+                Team Yellow
+            </label></br>
+            <label class="form-check-label p2">
+                <input class="form-check-input" type="checkbox" value="Green">
+                Team Green
+            </label></br>
+            <label class="form-check-label p3">
+                <input class="form-check-input" type="checkbox" value="Blue">
+                Team Blue
+            </label></br>
+            <label class="form-check-label p4">
+                <input class="form-check-input" type="checkbox" value="Red">
+                Team Red
+            </label></br>
+            <label class="form-check-label p5">
+                <input class="form-check-input" type="checkbox" value="Black">
+                Team Black
+            </label>
+            <button id="letsPlay" type="submit" class="btn btn-classic">Let's Play!</button>
+          </form>
+        </div>
+      </div>
       <div class="container">
-        <h1>Risk</h1>
+        <!-- <h1>Risk</h1> -->
         <div class="row">
           <div class="col-sm-4">
             <div id="activePlayer">
+              <h2>Team <span id="teamName"></span></h2>
+              <h3>Territories Owned:</h3>
+              <ul id="activePlayerTerritories"></ul>
+              <div class="draft">
+                <p>
+                  Troop Draft:
+                  <span id="troopsDrafted"></span></p>
+                <p>
+                  Place Troops in<br>
+                  <span id="placeTroopsTerritory"></span>
+                  <select id="numberOfTroopsPlaced"></select>
+                </p>
+              </div>
+
+
             </div>
           </div>
           <div class="col-sm-4" id="teams">
@@ -23,6 +68,10 @@
             <h4 class="p3">Team Blue</h4>
             <h4 class="p4">Team Red</h4>
             <h4 class="p5">Team Black</h4>
+            <div class="attack">
+              <button class="attack">Attack</button>
+              <button class="endTurn">End Turn</button>
+            </div>
           </div>
           <div class="col-sm-4">
             <div id="otherPlayer">
@@ -30,6 +79,10 @@
           </div>
         </div>
         <!-- dice divs start -->
+        <div class="col-sm-4 box">Attacking from:
+          <h3 id="attackingTerritory"></h3>
+          <ul id="adjacent"></ul>
+        </div>
         <div id="dice" class="col-sm-4">
           <div class="row">
             <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
@@ -45,14 +98,25 @@
           </div>
           <h2 id="winner"></h2>
         </div>
+        <div class="col-sm-4 box">Defending from: <h3 id="defendingTerritory"></h3></div>
         <!-- dice divs end -->
       </div>
     </div>
-  <script src="js/jquery-3.1.0.js"></script>
-  <script src="js/player.js"></script>
-  <script src="js/territory.js"></script>
-  <script src="js/continent.js"></script>
-  <script src="js/game.js"></script>
-  <script src="js/scripts.js"></script>
+    <div id="finale">
+      <div class="jumbotron">
+        <img src="img/fireworks2.gif"><img src="img/fireworks6.gif"><img class="break" src="img/fireworks12.gif">
+        <img src="img/fireworks4.gif"><img src="img/fireworks3.gif">
+        <h1><span id="theWinner"></span></h1>
+        <img src="img/fireworks4.gif"><img src="img/fireworks6.gif">
+        <img src="img/fireworks8.gif"><img src="img/fireworks6.gif">
+        <img class="break" src="img/fireworks5.gif">
+      </div>
+    </div>
+    <script src="js/jquery-3.1.0.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/territory.js"></script>
+    <script src="js/continent.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/scripts.js"></script>
   </body>
 </html>
