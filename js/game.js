@@ -174,10 +174,28 @@ Game.prototype.addPlayer = function(player) {
 }
 
 Game.prototype.removePlayer = function(player) {
-  $.each(newGame.players, function(i){
-    if(newGame.players[i].name === player)
-    newGame.players.splice(i,1);
-    })
+  $.each(this.players, function(i){
+    if(this.players[i].name === player) {
+      this.players.splice(i,1);
+    }
+  });
+}
+
+Game.prototype.loseBattle = function(winner, loser, territory) {
+  this.players.forEach(function(player){
+    if(player.name === winner){
+      player.territories.push(territory.name);
+    }
+  });
+
+  this.players.forEach(function(player){
+    if(player.name === loser) {
+      alert(player.name + " is a LOSER!!!!");
+      console.log(territory);
+      player.removeTerritory(territory.name);
+
+    }
+  });
 }
 
 Game.prototype.findTerritory = function(territoryName) {
@@ -191,6 +209,8 @@ Game.prototype.findTerritory = function(territoryName) {
   });
   return t;
 }
+
+
 
 // function Game() {
 //   this.players=[];

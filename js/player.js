@@ -14,6 +14,16 @@ Player.prototype.draftTroops = function() {
   return Math.floor(this.territories.length/3);
 }
 
+Player.prototype.removeTerritory = function(territoryName) {
+  alert("You have arrived at the non-functioning function, would you like to non-function with us?");
+  for(var i=0;i<this.territories.length;i++){
+    alert(this.territories[i]);
+    if(this.territories[i] === territoryName){
+
+      this.territories.splice(i,1);
+    }
+  }
+}
 // function Player() {
 //   this.playerColor="";
 //   this.objectives=[];

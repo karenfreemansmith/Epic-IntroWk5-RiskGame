@@ -315,6 +315,8 @@ $("#battle").click(function(){
     newGame.attacking.troops -= 1;
   }
   if (newGame.defending.troops <= 0) {
-    newGame.defending.owner = newGame.attacking.owner;                  
+    //alert(newGame.defending.owner);
+    newGame.loseBattle(newGame.attacking.owner,newGame.defending.owner, newGame.defending);
+    newGame.defending.owner = newGame.attacking.owner;
   }
 });
