@@ -105,9 +105,39 @@ li.p5:hover {
   cursor: pointer;
 }
 
+#teams .p1 {
+  display: none;
+}
+
+#teams .p2 {
+  display: none;
+}
+
+#teams .p3 {
+  display: none;
+}
+
+#teams .p4 {
+  display: none;
+}
+
+#teams .p5 {
+  display: none;
+}
+
+#teams-intro {
+  font-family: 'Baloo Paaji', cursive;
+  text-align: center;
+  background-color: rgba(255, 255, 255, 0.7);
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 3px 3px 10px grey;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
 #teams h4:hover {
   text-shadow: 2px 2px 5px grey;
-
 }
 
 #letsPlay {
@@ -118,7 +148,7 @@ li.p5:hover {
   display: none;
 }
 
- .intro #teams{
+ .intro #teams-intro{
   margin-left: 42%;
   text-align: left;
   max-width: 300px;
@@ -173,6 +203,7 @@ li.p5:hover {
 .attack {
   /*display: none;*/
 }
+
 
 .p1 {
   color: goldenrod;
