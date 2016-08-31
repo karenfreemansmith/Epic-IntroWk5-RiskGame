@@ -190,7 +190,6 @@ Game.prototype.loseBattle = function(winner, loser, territory) {
 
   this.players.forEach(function(player){
     if(player.name === loser) {
-      alert(player.name + " is a LOSER!!!!");
       console.log(territory);
       player.removeTerritory(territory.name);
 

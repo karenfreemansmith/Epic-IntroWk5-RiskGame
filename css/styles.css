@@ -63,6 +63,10 @@ li.p5:hover {
   box-shadow: 3px 3px 10px grey;
   box-sizing: border-box;
 }
+#otherPlayer li:hover {
+  text-shadow: none;
+  cursor: none;
+}
 
 #activePlayer p, #otherPlayer p {
   font-size: 20px;
@@ -184,6 +188,11 @@ li.p5:hover {
   box-sizing: border-box;
 }
 
+.box li:hover {
+  text-shadow: 3px 3px 10px #bfbfbf;
+  cursor: pointer;
+
+}
 
 .red {
   width: 70px;
