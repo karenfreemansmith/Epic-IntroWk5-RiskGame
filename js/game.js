@@ -1,5 +1,8 @@
 function Game() {
   this.players=[];
+  this.activePlayerIndex=0;
+  this.numberOfPlayers=0;
+  this.troopDraft=0;
   var northAmerica = new Continent(5);
   var southAmerica = new Continent(2);
   var africa = new Continent(3);

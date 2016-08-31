@@ -16,8 +16,8 @@ Die.prototype.roll=function(){
 
 // Frontend Logic
 var newGame = new Game();
-var activePlayerNumber = 0;
-var numberOfPlayers = 0;``
+// var activePlayerNumber = 0;
+// var numberOfPlayers = 0;
 
 $("form").submit(function(event){
   var playersArray = []; //this is the array of colors players choose before game play
@@ -31,32 +31,51 @@ $("form").submit(function(event){
      if(teamColor === "Yellow"){
        var teamYellow = new Player("Yellow");
        newGame.addPlayer(teamYellow);
-     }
+       $(".p1").show();
+      }
+      //else {
+    //    $(".p1").hide();
+    //  }
      if (teamColor === "Green"){
        var teamGreen = new Player("Green");
        newGame.addPlayer(teamGreen);
-     }
+       $(".p2").show();
+      }
+    // else {
+    //    $(".p2").hide();
+    //  }
      if (teamColor === "Blue"){
        var teamBlue = new Player("Blue");
        newGame.addPlayer(teamBlue);
-     }
+       $(".p3").show();
+      }
+    //else {
+    //    $(".p3").hide();
+    //  }
      if (teamColor === "Red"){
        var teamRed = new Player("Red");
        newGame.addPlayer(teamRed);
-     }
+       $(".p4").show();
+      }
+    //else {
+    //    $(".p4").hide();
+    //  }
      if (teamColor === "Black"){
        var teamBlack = new Player("Black");
        newGame.addPlayer(teamBlack);
-     }
-
+       $(".p5").show();
+    }
+    // else {
+    //    $(".p5").hide();
+    //  }
    });
 
   newGame.assignTerritories();
   $(".intro").slideUp();
   $(".container").slideDown();
-  numberOfPlayers = newGame.players.length;
+  newGame.numberOfPlayers = newGame.players.length;
 
-  showActivePlayer(activePlayerNumber);
+  showActivePlayer(newGame.activePlayerIndex);
 
   $("h4").click(function(){
     var playerName=$(this).text().substr(5);
@@ -72,13 +91,13 @@ $("form").submit(function(event){
       var playerClass = "p5";
     }
     var msg = "";
-    var troopDraft = 0;
+    // var troopDraft = 0;
     msg = "<h2 class='"+playerClass+"'>"+$(this).text()+"</h2>";
     msg += "<h3>Territories Owned:</h3>";
     msg += "<ul>";
     newGame.players.forEach(function(player){
       if (player.name === playerName) {
-        troopDraft = Math.floor(player.territories.length/3);
+        newGame.troopDraft = Math.floor(player.territories.length/3);
         player.territories.forEach(function(territory) {
           msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
           newGame.board.forEach(function(continent){
@@ -114,29 +133,17 @@ function showActivePlayer(playerNumber){
   }else if(playerName === "Black") {
     var playerClass = "p5";
   }
-  var msg = "";
-  var troopDraft = 0;
-  msg = "<h2 class='"+playerClass+"'>Team "+playerName+"</h2>";
-  msg += "<h3>Territories Owned:</h3>";
-  msg += "<ul id='activePlayerTerritories'>";
-  msg += "</ul>";
-  msg += "<div class='draft'>";
-  msg += "<p>Troop Draft: <span id='troopsDrafted'></span></p>";
-  msg += "<p>Place Troops in <br><span id='placeTroopsTerritory'></span> ";
-  msg += "<select id='numberOfTroopsPlaced'>";
-  msg += "</select></p>"
-  msg += "</div>";
-  msg += "<div class='attack'>";
-  msg += "<button class='attack'>Attack</button>";
-  msg += "<button class='end'>End Turn</button>";
-  msg += "</div>";
+  $("#activePlayer h2").removeClass();
+  $("#activePlayer h2").addClass(playerClass);
+  $("#teamName").text(playerName);
 
-  $("#activePlayer").html(msg);
   // activePlayerTerritories
   newGame.players.forEach(function(player){
+    var msg="";
     if (player.name === playerName) {
-      troopDraft = Math.floor(player.territories.length/3);
-      $("#troopsDrafted").append(troopDraft);
+      newGame.troopDraft = Math.floor(player.territories.length/3);
+      $("#troopsDrafted").text(newGame.troopDraft);
+      $("#activePlayerTerritories").empty();
       player.territories.forEach(function(territory) {
         msg = "<li class = '"+playerClass+"'><span class='territory'>"+territory+ ": ";
         newGame.board.forEach(function(continent){
@@ -148,11 +155,9 @@ function showActivePlayer(playerNumber){
               $(".territory").last().click(function() {
                 $("#placeTroopsTerritory").text(t.name);
                 $("#numberOfTroopsPlaced").empty();
-                for (var i=t.troops; i<=troopDraft+t.troops; i++) {
+                for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
                   $("#numberOfTroopsPlaced").append("<option>"+i+"</option>");
                 }
-                // alert(t.troops);
-                // alert(troopDraft);
               });
             }
           });
@@ -164,23 +169,23 @@ function showActivePlayer(playerNumber){
   $("#activePlayer").show();
   $("#numberOfTroopsPlaced").change(function(){
     alert($("#numberOfTroopsPlaced").val());
-    alert(troopDraft);
+    alert(newGame.troopDraft);
   });
-  $("button.end").click(function() {
-    if (activePlayerNumber < numberOfPlayers-1) {
-      activePlayerNumber += 1;
-    } else {
-      activePlayerNumber = 0;
-    }
-    $("#battle").hide();
-    $("#dice").hide();
-    showActivePlayer(activePlayerNumber);
-  });
-  $("button.attack").click(function(){
-    $("#battle").show();
-  });
-}
 
+}
+$("button.endTurn").click(function() {
+  if (newGame.activePlayerIndex < newGame.numberOfPlayers-1) {
+    newGame.activePlayerIndex += 1;
+  } else {
+    newGame.activePlayerIndex = 0;
+  }
+  $("#battle").hide();
+  $("#dice").hide();
+  showActivePlayer(newGame.activePlayerIndex);
+});
+$("button.attack").click(function(){
+  $("#battle").show();
+});
 
 $("#battle").click(function(){
   var redOne =  new Die(6, "defense", "red");

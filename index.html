@@ -44,6 +44,21 @@
       <div class="row">
         <div class="col-sm-4">
           <div id="activePlayer">
+            <h2>Team <span id="teamName"></span></h2>
+            <h3>Territories Owned:</h3>
+            <ul id="activePlayerTerritories"></ul>
+            <div class="draft">
+              <p>
+                Troop Draft:
+                <span id="troopsDrafted"></span></p>
+              <p>
+                Place Troops in<br>
+                <span id="placeTroopsTerritory"></span>
+                <select id="numberofTroopsPlaced"></select>
+              </p>
+            </div>
+
+
           </div>
         </div>
         <div class="col-sm-4" id="teams">
@@ -52,6 +67,10 @@
           <h4 class="p3">Team Blue</h4>
           <h4 class="p4">Team Red</h4>
           <h4 class="p5">Team Black</h4>
+          <div class="attack">
+            <button class="attack">Attack</button>
+            <button class="endTurn">End Turn</button>
+          </div>
         </div>
         <div class="col-sm-4">
           <div id="otherPlayer">
@@ -59,6 +78,7 @@
         </div>
       </div>
       <!-- dice divs start -->
+      <div class="col-sm-4">Attacking from: <span id="attackingTerritory"></span></div>
       <div id="dice" class="col-sm-4">
         <div class="row">
           <button type="button" class="btn btn-lg btn-danger" id="battle">BATTLE!</button>
@@ -74,6 +94,7 @@
         </div>
         <h2 id="winner"></h2>
       </div>
+      <div class="col-sm-4">Defending from: <span id="defendingTerritory"></span></div>
       <!-- dice divs end -->
     </div>
     <script src="js/jquery-3.1.0.js"></script>
