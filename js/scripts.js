@@ -29,7 +29,7 @@ function showActivePlayer(playerName){
 
       $("#troopsDrafted").text(newGame.troopDraft);
       $("#activePlayerTerritories").empty();
-      player.territories.forEach(function(territory) {
+      player.territories.sort().forEach(function(territory) {
         msg = "<li class = '"+playerClass+"'><span class='territory'>"+territory+ ": ";
         newGame.board.forEach(function(continent){
           continent.territories.forEach(function(t) {
@@ -139,7 +139,7 @@ $("form").submit(function(event){
       newGame.players.forEach(function(player){
        if (player.name === playerName) {
          newGame.troopDraft = Math.floor(player.territories.length/3);
-         player.territories.forEach(function(territory) {
+         player.territories.sort().forEach(function(territory) {
            msg += "<li class = '"+playerClass+"'>"+territory+ ": ";
            newGame.board.forEach(function(continent){
              continent.territories.forEach(function(t) {
@@ -173,7 +173,7 @@ $("form").submit(function(event){
       newGame.troopDraft = Math.floor(newGame.players[newGame.activePlayerIndex].territories.length/3);
       // $("#battle").hide();
       // $("#dice").hide();
-      var playerName=newGame.players[playerNumber].name;
+      var playerName=newGame.players[newGame.activePlayerIndex].name;
       showActivePlayer(playerName);
       if (newGame.players.length === 1) { // THIS IS WHERE WINNER OF GAME IS DECLARED, permenant trigger button tbd
         $(".game-body").hide();
