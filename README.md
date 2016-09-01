@@ -1,4 +1,4 @@
-# [Risk](http://karenfreemansmith.github.io/risk) 
+# [Risk](http://karenfreemansmith.github.io/risk)
 __Version 1.0.0: August 31, 2016__
 
 A web-based game of risk by:
@@ -59,9 +59,7 @@ For questions or comments, please __email [Karen](karenfreemansmith@gmail.com)__
 
 ### Known Issues
 * The program does not stop subtracting from troops if troop number hits 0
-* The program does not update user interface when a battle is won (is available in the backend)
 * The program allows user to attack themselves
-* The program troop draft is inconsistent
 * The attacking list does not display territory owner by color
 
 ### What is next
