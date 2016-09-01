@@ -1,3 +1,17 @@
+function Die(sides, type, color, value) {
+  this.sides = sides;
+  this.type = type; //defense, attack, defense bonus, attack bonus
+  this.color = color; //determined by type, attack=black, defense=red
+  this.value = 1;
+  this.roll();
+}
+
+Die.prototype.roll=function(){
+    min = 1;
+    max = this.sides;
+    this.value = Math.floor(Math.random()*(max - min+1)) + min;
+}
+
 function Game() {
   this.players=[];
   this.activePlayerIndex=0;
