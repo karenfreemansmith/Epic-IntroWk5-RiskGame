@@ -236,6 +236,7 @@ $("form").submit(function(event){
       redArray.push(redOne.value);
       $("#defendOne").text(redArray[0]);
       $("#defendOne").show();
+      $("#defendTwo").hide();
       }
 
     // for attack(black) dice
@@ -261,12 +262,15 @@ $("form").submit(function(event){
       $("#attackTwo").text(blackArray[1]);
       $("#attackOne").show();
       $("#attackTwo").show();
+      $("#attackThree").hide();
       }
       else if (player1troops === 2) {
       blackOne.roll();
       blackArray.push(blackOne.value);
       $("#attackOne").text(blackArray[0]);
       $("#attackOne").show();
+      $("#attackTwo").hide();
+      $("#attackThree").hide();
       }
       else {
       alert("You do not have enough troops here to battle.");
