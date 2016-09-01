@@ -190,10 +190,12 @@ $("form").submit(function(event){
     $(".defenders").last().click(function() {
       newGame.defending=newGame.findTerritory(at);
       $("#defendingTerritory").html("<span class='territoryName'>"+newGame.defending.name + "</span> (<span class='troops'>" + newGame.defending.troops + "</span>)");
+      $("#defendingTerritory").removeClass();
       $("#defendingTerritory").addClass(getPlayerClass(newGame.defending.owner));
     });
     $("#placeTroopsTerritory").text(t.name);
     $("#attackingTerritory").text(t.name + " ("+t.troops+")");
+    $("#attackingTerritory").removeClass();
     $("#attackingTerritory").addClass(playerClass);
     $("#numberOfTroopsPlaced").empty();
     for (var i=t.troops; i<=newGame.troopDraft+t.troops; i++) {
