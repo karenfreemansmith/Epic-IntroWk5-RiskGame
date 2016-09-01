@@ -52,23 +52,27 @@ A web-based game of risk by:
 * Determine if any player holds all territories - they win, game over
 
 ### Setup/Installation
-*Clone or download and extract to use, or click [here](http://karenfreemansmith.github.io/myportfolio) to view.*
+*Clone or download and extract to use, or click [here](http://karenfreemansmith.github.io/risk) to view.*
 
 ### Support & Contact
 For questions or comments, please __email [Karen](karenfreemansmith@gmail.com)__
 
 ### Known Issues
 * The program does not stop subtracting from troops if troop number hits 0
+* Some battles end with attacking country having -1 troops
 * The program allows user to attack themselves
 * The attacking list does not display territory owner by color
+* Sometimes defending country displays with wrong team color
+* Too many dice display sometimes (are not hidden if attack troops go down, but don't seem to roll again)
+* Stuff stays on screen after battles or turn end that should be hidden or reset
 
 ### What is next
-* Artificial intelligence
 * Assign bonus troops for countries owned
-* Add objectives and rewards (3 objectives won)
-* Add cards at the end of each turn
 * Add troop maneuvers at the end of each turn
+* Add cards at the end of each turn
+* Add objectives and rewards (3 objectives won)
 * Add cities and capitols
+* Artificial intelligence
 
 ### Technologies Used
 ###### HTML, CSS, Bootstrap, JavaScript, jQuery
