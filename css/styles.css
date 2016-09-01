@@ -172,9 +172,8 @@ li.defenders:hover {
 }
 
  .intro #teams-intro{
-  margin-left: 42%;
   text-align: left;
-  max-width: 300px;
+  width: 300px;
 }
 
 .intro label {
@@ -264,8 +263,33 @@ li.defenders:hover {
   color: white;
 }
 
-@media (max-width: 2108px){
-  .break {
-    display: none;
-  }
-}
+/*Adding bootstrap container properties and media queries to intro*/
+.intro {
+  margin-right: auto;
+  margin-left: auto;
+  padding-left: 6px;
+  padding-right: 6px; }
+
+.intro:before, .intro:after {
+    content: " ";
+    display: table; }
+.intro:after {
+    clear: both; }
+@media (min-width: 768px) {
+    .intro {
+      width: 732px; } }
+@media (min-width: 992px) {
+    .intro {
+      width: 952px; } }
+
+@media (max-width: 990px){
+  .intro #teams-intro{
+   margin-left: 35%; } }
+
+@media (max-width: 600px){
+   .intro #teams-intro{
+    margin-left: 20%; } }
+
+@media (max-width: 400px){
+    .intro #teams-intro{
+     margin-left: 10%; } }
