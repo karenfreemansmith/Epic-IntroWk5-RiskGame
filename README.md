@@ -1,4 +1,4 @@
-# [Risk](https://katycodes.github.io/risk/)
+# [Risk](https://karenfreemansmith.github.io/risk/)
 __Version 1.0.0: August 31, 2016__
 
 A web-based game of risk by:
@@ -52,10 +52,10 @@ A web-based game of risk by:
 * Determine if any player holds all territories - they win, game over
 
 ### Setup/Installation
-*Clone or download and extract to use, or click [here](https://katycodes.github.io/risk/) to view.*
+*Clone or download and extract to use, or click [here](https://karenfreemansmith.github.io/risk/) to view.*
 
 ### Support & Contact
-For questions or comments, please __email [Katy](katyannhenning@gmail.com)__
+For questions or comments, please __email [Karen](karenfreemansmith@gmail.com)__
 
 ### Known Issues
 * The program does not stop subtracting from troops if troop number hits 0
