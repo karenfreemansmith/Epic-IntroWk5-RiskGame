@@ -2,12 +2,16 @@
 __Version 1.0.0: August 31, 2016__
 
 A web-based game of risk by:
-###[Aimen Khakwani](https://github.com/aimenkhakwani), [J'ena SanCartier](https://github.com/jenasancartier), [Karen Freeman-Smith](https://github.com/karenfreemansmith), and [Katy Henning](https://github.com/KatyCodes)
+[Aimen Khakwani](https://github.com/aimenkhakwani), [J'ena SanCartier](https://github.com/jenasancartier), [Karen Freeman-Smith](https://github.com/karenfreemansmith), and [Katy Henning](https://github.com/KatyCodes)
 
 ![project screenshot](/img/screenshot.jpg)
 
-### Specifications:
-#### Game Setup
+
+## Technologies Used
+HTML, CSS, Bootstrap, JavaScript, jQuery
+
+## Specifications:
+### Game Setup
 * Create board objects
   * continents defined
     * input - start game
@@ -51,13 +55,16 @@ A web-based game of risk by:
 ### End Game on World Domination
 * Determine if any player holds all territories - they win, game over
 
-### Setup/Installation
-*Clone or download and extract to use, or click [here](https://karenfreemansmith.github.io/risk/) to view.*
+## Setup/Installation
+* [View on Github Pages](https://karenfreemansmith.github.io/EpicIntroWk1-PetWebsite)
+* _OR_
+* Clone diectory 
+* Open index.html in your favorite browser
 
-### Support & Contact
-For questions or comments, please __email [Karen](karenfreemansmith@gmail.com)__
+## Support & Contact
+For questions, concerns, or suggestions please email karenfreemansmith@gmail.com
 
-### Known Issues
+## Known Issues
 * The program does not stop subtracting from troops if troop number hits 0
 * Some battles end with attacking country having -1 troops
 * The program allows user to attack themselves
@@ -74,10 +81,7 @@ For questions or comments, please __email [Karen](karenfreemansmith@gmail.com)__
 * Add cities and capitols
 * Artificial intelligence
 
-### Technologies Used
-###### HTML, CSS, Bootstrap, JavaScript, jQuery
-
 ### Legal
 *Licensed under the GNU General Public License v3.0*
 
-Copyright (c) 2016 **[Aimen Khakwani](https://github.com/aimenkhakwani), [J'ena SanCartier](https://github.com/jenasancartier), [Karen Freeman-Smith](https://github.com/karenfreemansmith), and [Katy Henning](https://github.com/KatyCodes)**
+Copyright (c) 2016 **[Aimen Khakwani](https://github.com/aimenkhakwani), [J'ena SanCartier](https://github.com/jenasancartier), [Karen Freeman-Smith](https://github.com/karenfreemansmith), and [Katy Henning](https://github.com/KatyCodes)** All Rights Reserved.
